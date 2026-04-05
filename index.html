@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adetunji Ademola — Data Analysis Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#020b1e;--blue:#1a45c8;--bel:#3b82f6;--glow:#60a5fa;--light:#93c5fd;--cyan:#06b6d4;--wh:#eef4ff;--ws:rgba(238,244,255,.88);--wm:rgba(238,244,255,.46);--cb:rgba(6,18,60,.62);--ce:rgba(96,165,250,.17);--green:#10b981;--green-soft:rgba(16,185,129,.14);--amber:#f59e0b;--amber-soft:rgba(245,158,11,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--navy);color:var(--wh);overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-g{position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 10% 5%,rgba(26,69,200,.3) 0%,transparent 55%),radial-gradient(ellipse 70% 50% at 90% 90%,rgba(6,182,212,.16) 0%,transparent 55%),linear-gradient(155deg,#020b1e 0%,#050d25 55%,#020818 100%)}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px);background-size:60px 60px}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.28}
+.o1{width:560px;height:560px;top:-180px;left:-130px;background:radial-gradient(circle,rgba(26,69,200,.45),transparent 70%)}
+.o2{width:500px;height:500px;bottom:-90px;right:-90px;background:radial-gradient(circle,rgba(6,182,212,.3),transparent 70%)}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:.9rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(2,11,30,.84);backdrop-filter:blur(24px);border-bottom:1px solid var(--ce)}
+.logo{font-family:"Syne",sans-serif;font-weight:800;font-size:1.08rem}.logo em{color:var(--glow);font-style:normal}
+.nl{display:flex;gap:2rem}.nl a{font-size:.79rem;font-weight:500;color:var(--wm);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}.nl a:hover{color:var(--glow)}
+.wrap{position:relative;z-index:1}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 3rem 5rem;max-width:1200px;margin:0 auto}
+.badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(26,69,200,.13);border:1px solid rgba(96,165,250,.26);border-radius:50px;padding:.28rem .88rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--glow);margin-bottom:1.7rem;width:fit-content;animation:fu .6s ease both}
+.badge::before{content:"";width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:bl 2s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+h1{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(2.7rem,6vw,5.5rem);line-height:.98;letter-spacing:-.025em;animation:fu .6s .1s ease both}
+.gr{background:linear-gradient(128deg,var(--bel) 0%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hs{font-size:clamp(.93rem,1.7vw,1.15rem);font-weight:300;color:var(--wm);margin-top:1.2rem;max-width:540px;line-height:1.8;animation:fu .6s .2s ease both}
+.hst{display:flex;gap:2.6rem;margin-top:3rem;animation:fu .6s .3s ease both;flex-wrap:wrap}
+.sn{font-family:"Syne",sans-serif;font-size:2rem;font-weight:800;color:var(--glow);line-height:1}.sl{font-size:.68rem;color:var(--wm);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
+.hcta{display:flex;gap:.85rem;margin-top:2.4rem;animation:fu .6s .4s ease both}
+.bp{display:inline-flex;align-items:center;gap:.4rem;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:.86rem;padding:.78rem 1.75rem;border-radius:9px;transition:all .22s;cursor:pointer}
+.bp:hover{background:var(--bel);transform:translateY(-2px);box-shadow:0 10px 26px rgba(26,69,200,.4)}
+.bo{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--ws);text-decoration:none;font-weight:500;font-size:.86rem;padding:.78rem 1.75rem;border-radius:9px;border:1px solid var(--ce);transition:all .22s}
+.bo:hover{border-color:var(--glow);color:var(--glow);transform:translateY(-2px)}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.S{max-width:1200px;margin:0 auto;padding:5rem 3rem}
+.lbl{font-size:.69rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:.65rem}
+.stl{font-family:"Syne",sans-serif;font-size:clamp(1.65rem,3vw,2.35rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:.8rem}
+.sdc{font-size:.92rem;color:var(--wm);max-width:480px;line-height:1.82;margin-bottom:2.6rem}
+.dv{max-width:1200px;margin:0 auto;padding:0 3rem;height:1px;background:linear-gradient(90deg,transparent,rgba(96,165,250,.15),transparent)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.at p{font-size:.93rem;line-height:1.9;color:var(--ws);margin-bottom:.95rem}
+.sw{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.2rem}
+.sp{background:rgba(26,69,200,.11);border:1px solid rgba(96,165,250,.18);color:var(--light);font-size:.74rem;font-weight:500;padding:.26rem .75rem;border-radius:50px}
+.cc{background:var(--cb);border:1px solid var(--ce);border-radius:18px;padding:1.85rem;backdrop-filter:blur(16px)}
+.cc h3{font-family:"Syne",sans-serif;font-size:.96rem;font-weight:700;margin-bottom:1.25rem}
+.cr{display:flex;align-items:center;gap:.82rem;margin-bottom:.95rem}
+.ci{width:38px;height:38px;border-radius:9px;background:rgba(26,69,200,.14);border:1px solid var(--ce);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.cl{font-size:.65rem;color:var(--wm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.08rem}.cv{font-size:.86rem;color:var(--ws)}
+.cv a{color:var(--glow);text-decoration:none}.cv a:hover{text-decoration:underline}
+.cvbtn{display:flex;align-items:center;justify-content:center;gap:.42rem;width:100%;margin-top:1.35rem;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:.86rem;padding:.75rem;border-radius:9px;transition:all .22s}
+.cvbtn:hover{background:var(--bel);transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,69,200,.4)}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem;margin-top:1.8rem}
+.dt{position:relative;border-radius:13px;overflow:hidden;border:1px solid var(--ce);background:var(--cb);aspect-ratio:16/9;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.dt:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,26,.55),0 0 0 1px rgba(96,165,250,.3)}
+.dt img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.dt:hover img{transform:scale(1.07)}
+.do{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,30,.94) 0%,rgba(2,11,30,.12) 65%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:.85rem}
+.dn{font-family:"Syne",sans-serif;font-size:.83rem;font-weight:700;color:#fff;margin-bottom:.14rem}.ds{font-size:.69rem;color:var(--light);opacity:.82}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.3rem}
+.pc{background:var(--cb);border:1px solid var(--ce);border-radius:15px;overflow:hidden;backdrop-filter:blur(14px);transition:transform .3s,box-shadow .3s;cursor:pointer}
+.pc:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(0,0,35,.5),0 0 0 1px rgba(96,165,250,.28)}
+.ph{padding:1.4rem 1.4rem 1rem;border-bottom:1px solid var(--ce);display:flex;justify-content:space-between;align-items:flex-start;gap:.85rem}
+.pi{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.pt{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.19rem .56rem;border-radius:50px}
+.pb{padding:1.2rem 1.4rem}
+.pb h3{font-family:"Syne",sans-serif;font-size:1rem;font-weight:700;color:var(--wh);margin-bottom:.48rem;line-height:1.3}
+.pb p{font-size:.82rem;color:var(--wm);line-height:1.72;margin-bottom:.95rem}
+.pm{display:flex;gap:1.05rem;flex-wrap:wrap}
+.pv{font-family:"Syne",sans-serif;font-size:1rem;font-weight:700;color:var(--glow)}.pk{font-size:.65rem;color:var(--wm);text-transform:uppercase;letter-spacing:.07em}
+.pf{padding:.82rem 1.4rem;border-top:1px solid var(--ce);display:flex;gap:.36rem;flex-wrap:wrap;align-items:center}
+.tt{font-size:.68rem;padding:.18rem .5rem;border-radius:5px;font-weight:500;background:rgba(255,255,255,.05);color:var(--wm);border:1px solid rgba(255,255,255,.07)}
+.oh{margin-left:auto;font-size:.68rem;color:var(--glow);opacity:.72;font-weight:500}
+.tb .pi{background:rgba(26,69,200,.17)}.tb .pt{background:rgba(26,69,200,.14);color:var(--glow)}
+.tc .pi{background:rgba(6,182,212,.17)}.tc .pt{background:rgba(6,182,212,.14);color:#67e8f9}
+.ta .pi{background:rgba(245,158,11,.17)}.ta .pt{background:rgba(245,158,11,.14);color:#fcd34d}
+.tg .pi{background:rgba(16,185,129,.17)}.tg .pt{background:rgba(16,185,129,.14);color:#6ee7b7}
+.tr .pi{background:rgba(244,63,94,.17)}.tr .pt{background:rgba(244,63,94,.14);color:#fda4af}
+.tp .pi{background:rgba(139,92,246,.17)}.tp .pt{background:rgba(139,92,246,.14);color:#c4b5fd}
+footer{border-top:1px solid var(--ce);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+footer p{font-size:.77rem;color:var(--wm)}.fb{font-family:"Syne",sans-serif;font-weight:700;font-size:.86rem;color:var(--glow)}
+
+/* ── MODAL ── */
+.mo{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.9);backdrop-filter:blur(14px);display:flex;align-items:flex-start;justify-content:center;padding:1.5rem 1rem;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .22s}
+.mo.open{opacity:1;pointer-events:all}
+.md{width:100%;max-width:920px;background:linear-gradient(145deg,#081430 0%,#050b20 100%);border:1px solid rgba(96,165,250,.24);border-radius:18px;overflow:hidden;transform:translateY(22px);transition:transform .3s cubic-bezier(.16,1,.3,1);margin:auto}
+.mo.open .md{transform:translateY(0)}
+.mh{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.6rem 1.8rem 1.1rem;border-bottom:1px solid rgba(96,165,250,.1)}
+.mhl{display:flex;align-items:center;gap:.85rem}
+.mic{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;flex-shrink:0;background:rgba(26,69,200,.2);border:1px solid rgba(96,165,250,.18)}
+.mt{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:800;line-height:1.25;margin-bottom:.18rem}.mm{font-size:.73rem;color:var(--glow);font-weight:500}
+.mx{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--wm);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s}
+.mx:hover{background:rgba(255,255,255,.14);color:#fff}
+.mk{display:flex;gap:.75rem;flex-wrap:wrap;padding:.95rem 1.8rem;background:rgba(26,69,200,.06);border-bottom:1px solid rgba(96,165,250,.08)}
+.ki{background:rgba(255,255,255,.04);border:1px solid rgba(96,165,250,.1);border-radius:9px;padding:.58rem .88rem;min-width:90px}
+.kv{font-family:"Syne",sans-serif;font-size:1.05rem;font-weight:800;color:var(--glow)}.kk{font-size:.62rem;color:var(--wm);text-transform:uppercase;letter-spacing:.07em;margin-top:.1rem}
+
+/* ── FILE DOWNLOAD BAR ── */
+.mf{display:flex;gap:.75rem;flex-wrap:wrap;padding:1rem 1.8rem;background:rgba(0,0,0,.18);border-bottom:1px solid rgba(96,165,250,.08);align-items:center}
+.mf::before{content:"&#128190; Files";font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--wm);margin-right:.25rem;white-space:nowrap}
+.mfb{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-size:.78rem;font-weight:600;padding:.5rem 1rem;border-radius:8px;transition:all .2s;white-space:nowrap}
+.mfb-xl{background:var(--green-soft);border:1px solid rgba(16,185,129,.3);color:#6ee7b7}
+.mfb-xl:hover{background:rgba(16,185,129,.22);border-color:rgba(16,185,129,.55);transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,185,129,.2)}
+.mfb-pb{background:var(--amber-soft);border:1px solid rgba(245,158,11,.3);color:#fcd34d}
+.mfb-pb:hover{background:rgba(245,158,11,.22);border-color:rgba(245,158,11,.55);transform:translateY(-1px);box-shadow:0 4px 14px rgba(245,158,11,.2)}
+.mfbl{font-size:.67rem;font-weight:400;opacity:.75;margin-left:.1rem}
+
+/* ── MODAL BODY ── */
+.mb{padding:1.5rem 1.8rem 1.8rem;max-height:56vh;overflow-y:auto}
+.mb::-webkit-scrollbar{width:4px}.mb::-webkit-scrollbar-thumb{background:rgba(96,165,250,.28);border-radius:3px}
+.mb h4{font-family:"Syne",sans-serif;font-size:.9rem;font-weight:700;color:var(--wh);margin:1.4rem 0 .55rem;padding-bottom:.32rem;border-bottom:1px solid rgba(96,165,250,.1)}
+.mb h4:first-child{margin-top:0}
+.mb p{font-size:.845rem;color:var(--ws);line-height:1.86;margin-bottom:.4rem}
+.mb ul{padding-left:1.1rem;margin-bottom:.7rem}.mb ul li{font-size:.845rem;color:var(--ws);line-height:1.86;margin-bottom:.32rem}
+.mb table.rt{width:100%;border-collapse:collapse;margin:.5rem 0 .9rem;font-size:.77rem}
+.mb table.rt th{background:rgba(26,69,200,.18);color:var(--light);font-weight:600;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;padding:.46rem .66rem;text-align:left}
+.mb table.rt td{padding:.43rem .66rem;border-bottom:1px solid rgba(96,165,250,.07);color:var(--ws)}
+.mb table.rt tr:last-child td{border-bottom:none}.mb table.rt tr:hover td{background:rgba(26,69,200,.09)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .52s ease,transform .52s ease}.rv.vis{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+  nav{padding:.85rem 1.3rem}.nl{display:none}
+  .hero,.S{padding:4.5rem 1.3rem 2.8rem}.hero{padding-top:6.5rem}
+  h1{font-size:2.4rem}.hst{gap:1.3rem}
+  .ag{grid-template-columns:1fr;gap:2rem}.pg{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:.4rem;text-align:center;padding:1.3rem}
+  .mk{gap:.5rem}.mb{max-height:50vh;padding:1rem 1.2rem 1.3rem}
+  .mh{padding:1.2rem 1.2rem .9rem}.mk{padding:.85rem 1.2rem}
+  .mf{padding:.85rem 1.2rem}.mfb{font-size:.73rem;padding:.45rem .8rem}
+}
+</style>
+</head>
+<body>
+<div class="bg"><div class="bg-g"></div><div class="bg-grid"></div><div class="orb o1"></div><div class="orb o2"></div></div>
+
+<nav>
+  <div class="logo">A<em>.</em>Ademola</div>
+  <div class="nl">
+    <a href="#about">About</a>
+    <a href="#dashboards">Dashboards</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="badge">Data Analyst &amp; Business Intelligence</div>
+  <h1>Adetunji<br><span class="gr">Ademola</span></h1>
+  <p class="hs">Transforming complex datasets into clear, actionable insights. Specialising in Power BI dashboards, Excel analytics, and strategic business reporting across diverse industries.</p>
+  <div class="hst">
+    <div><div class="sn">7</div><div class="sl">Projects</div></div>
+    <div><div class="sn">6</div><div class="sl">Industries</div></div>
+    <div><div class="sn">500K+</div><div class="sl">Records Analysed</div></div>
+    <div><div class="sn">$29M+</div><div class="sl">Revenue Analysed</div></div>
+  </div>
+  <div class="hcta">
+    <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="bp">View Projects &#8595;</button>
+    <a href="mailto:aypumpi2015@gmail.com" class="bo">Get In Touch</a>
+  </div>
+</div>
+
+<!-- ABOUT + CONTACT -->
+<section class="S" id="about">
+  <div class="ag">
+    <div class="at rv">
+      <div class="lbl">About Me</div>
+      <h2 class="stl">Turning Data Into Decisions</h2>
+      <p>I am a data analyst with hands-on experience across retail, aviation, food &amp; beverage, e-commerce, and social media analytics. I specialise in building interactive Power BI dashboards and comprehensive Excel-based analytical models that surface the stories hidden inside raw data.</p>
+      <p>My work focuses on actionable outcomes &#8212; not just visualisations, but strategic recommendations that drive measurable business impact. Every project I deliver includes detailed analysis reports, KPI frameworks, and executive-level summaries.</p>
+      <div class="sw">
+        <span class="sp">Power BI</span><span class="sp">Excel / Pivot Tables</span>
+        <span class="sp">Data Visualisation</span><span class="sp">KPI Dashboards</span>
+        <span class="sp">Segmentation Analysis</span><span class="sp">Revenue Analytics</span>
+        <span class="sp">Operations Analysis</span><span class="sp">Report Writing</span>
+      </div>
+    </div>
+    <div class="rv" id="contact">
+      <div class="cc">
+        <h3>&#128236; Contact Information</h3>
+        <div class="cr"><div class="ci">&#128100;</div><div><div class="cl">Full Name</div><div class="cv">Adetunji Ademola</div></div></div>
+        <div class="cr"><div class="ci">&#9993;</div><div><div class="cl">Email Address</div><div class="cv"><a href="mailto:aypumpi2015@gmail.com">aypumpi2015@gmail.com</a></div></div></div>
+        <div class="cr"><div class="ci">&#128241;</div><div><div class="cl">Phone Number</div><div class="cv"><a href="tel:09068807569">09068807569</a></div></div></div>
+        <div class="cr"><div class="ci">&#128205;</div><div><div class="cl">Location</div><div class="cv">Lagos, Nigeria</div></div></div>
+        <div class="cr"><div class="ci">&#128295;</div><div><div class="cl">Core Tools</div><div class="cv">Power BI &#183; Excel &#183; Data Analytics</div></div></div>
+        <a href="https://1drv.ms/w/c/33bb7d3b6886bbe9/IQD4nKb7bBhtQZAjxth5NmOrAfdH2QYscATnVy2jdo4cMEw" target="_blank" rel="noopener" class="cvbtn">&#128196; Download CV / Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dv"></div>
+
+<!-- DASHBOARD GALLERY -->
+<section class="S" id="dashboards">
+  <div class="rv">
+    <div class="lbl">Dashboards</div>
+    <h2 class="stl">Dashboard Gallery</h2>
+    <p class="sdc">Visual previews of every project. Click any thumbnail &#8212; or any project card below &#8212; to open the full report with downloadable files.</p>
+  </div>
+  <div class="gg rv">
+    <div class="dt" onclick="openM('accenture')">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75" alt="Accenture Dashboard" loading="lazy">
+      <div class="do"><div class="dn">Accenture Social Media</div><div class="ds">24,573 Reactions &#183; Power BI</div></div>
+    </div>
+    <div class="dt" onclick="openM('airline')">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=75" alt="Airline Dashboard" loading="lazy">
+      <div class="do"><div class="dn">Airline Passenger Satisfaction</div><div class="ds">129,880 Passengers &#183; Power BI</div></div>
+    </div>
+    <div class="dt" onclick="openM('ayo')">
+      <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=600&q=75" alt="Ayo Sales Dashboard" loading="lazy">
+      <div class="do"><div class="dn">Ayo Sales &#8212; W. &amp; S. Africa</div><div class="ds">8,904 Orders &#183; Excel</div></div>
+    </div>
+    <div class="dt" onclick="openM('cafe')">
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=75" alt="Cafe Dashboard" loading="lazy">
+      <div class="do"><div class="dn">Ayomikun Caf&#233; 2023</div><div class="ds">Annual Revenue &#183; Excel</div></div>
+    </div>
+    <div class="dt" onclick="openM('global')">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=75" alt="Global Superstore Dashboard" loading="lazy">
+      <div class="do"><div class="dn">Global Superstore 2011&#8211;2014</div><div class="ds">$12.64M Revenue &#183; Excel</div></div>
+    </div>
+    <div class="dt" onclick="openM('kms')">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=75" alt="KMS Dashboard" loading="lazy">
+      <div class="do"><div class="dn">KMS Superstore 2009&#8211;2012</div><div class="ds">$14.92M Revenue &#183; Power BI</div></div>
+    </div>
+    <div class="dt" onclick="openM('pizza')">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=75" alt="Pizza Dashboard" loading="lazy">
+      <div class="do"><div class="dn">Pizza Sales FY 2015</div><div class="ds">$817,860 Revenue &#183; Excel</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="dv"></div>
+
+<!-- PROJECTS -->
+<section class="S" id="projects">
+  <div class="rv">
+    <div class="lbl">Portfolio</div>
+    <h2 class="stl">Featured Projects</h2>
+    <p class="sdc">Click any card to open the full report plus download links for the Excel dataset and Power BI dashboard.</p>
+  </div>
+  <div class="pg">
+    <div class="pc tb rv" onclick="openM('accenture')">
+      <div class="ph"><div class="pi">&#128202;</div><span class="pt">Social Media</span></div>
+      <div class="pb"><h3>Accenture Social Media Reaction Analysis</h3><p>24,573 reactions across 962 content pieces, 16 categories and 4 formats. Full sentiment scoring over 12 months.</p>
+        <div class="pm"><div><div class="pv">24,573</div><div class="pk">Reactions</div></div><div><div class="pv">56.2%</div><div class="pk">Positive</div></div><div><div class="pv">973,645</div><div class="pk">Score Points</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Power BI</span><span class="tt">Excel</span><span class="tt">Sentiment</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+    <div class="pc tc rv" onclick="openM('airline')">
+      <div class="ph"><div class="pi">&#9992;</div><span class="pt">Aviation</span></div>
+      <div class="pb"><h3>Airline Passenger Satisfaction Analysis</h3><p>Satisfaction drivers for 129,880 passengers across class, loyalty, age and 14 service quality dimensions.</p>
+        <div class="pm"><div><div class="pv">129,880</div><div class="pk">Passengers</div></div><div><div class="pv">43.4%</div><div class="pk">Satisfaction</div></div><div><div class="pv">3.7&#215;</div><div class="pk">Class Gap</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Power BI</span><span class="tt">Excel</span><span class="tt">Segmentation</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+    <div class="pc ta rv" onclick="openM('ayo')">
+      <div class="ph"><div class="pi">&#128722;</div><span class="pt">Retail Distribution</span></div>
+      <div class="pb"><h3>Ayo Sales &#8212; West &amp; South Africa Operations</h3><p>8,904 retail orders in Nigeria &amp; South Africa. Delivery performance, fulfilment and channel analytics.</p>
+        <div class="pm"><div><div class="pv">8,904</div><div class="pk">Orders</div></div><div><div class="pv">89.4%</div><div class="pk">Delivered</div></div><div><div class="pv">65.3%</div><div class="pk">Late Rate</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Excel</span><span class="tt">Operations</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+    <div class="pc tg rv" onclick="openM('cafe')">
+      <div class="ph"><div class="pi">&#9749;</div><span class="pt">Food &amp; Beverage</span></div>
+      <div class="pb"><h3>Ayomikun Caf&#233; &#8212; 2023 Annual Performance</h3><p>Revenue rankings, payment methods, seasonal volume trends and in-store vs takeaway split.</p>
+        <div class="pm"><div><div class="pv">9</div><div class="pk">Products</div></div><div><div class="pv">48%</div><div class="pk">Cash</div></div><div><div class="pv">#1 Salad</div><div class="pk">Top Revenue</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Excel</span><span class="tt">Revenue Analysis</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+    <div class="pc tr rv" onclick="openM('global')">
+      <div class="ph"><div class="pi">&#127758;</div><span class="pt">Global Retail</span></div>
+      <div class="pb"><h3>Global Superstore Strategic Analysis 2011&#8211;2014</h3><p>51,290 transactions across 147 countries. Discount failures, loss-making markets and 90.3% growth.</p>
+        <div class="pm"><div><div class="pv">$12.64M</div><div class="pk">Revenue</div></div><div><div class="pv">147</div><div class="pk">Countries</div></div><div><div class="pv">+90.3%</div><div class="pk">Growth</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Excel</span><span class="tt">Geo Analytics</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+    <div class="pc tp rv" onclick="openM('kms')">
+      <div class="ph"><div class="pi">&#127978;</div><span class="pt">Retail</span></div>
+      <div class="pb"><h3>KMS Superstore Business Performance 2009&#8211;2012</h3><p>$14.92M across 795 customers in 8 Canadian regions. Loss-making SKUs and returns analysis.</p>
+        <div class="pm"><div><div class="pv">$14.92M</div><div class="pk">Revenue</div></div><div><div class="pv">$1.52M</div><div class="pk">Net Profit</div></div><div><div class="pv">10.4%</div><div class="pk">Returns</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Power BI</span><span class="tt">Excel</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+    <div class="pc tb rv" onclick="openM('pizza')">
+      <div class="ph"><div class="pi">&#127829;</div><span class="pt">Food &amp; Beverage</span></div>
+      <div class="pb"><h3>Pizza Sales Analysis &#8212; Fiscal Year 2015</h3><p>48,620 transactions, 21,350 orders across 32 products. Seasonal trends and peak ordering patterns.</p>
+        <div class="pm"><div><div class="pv">$817,860</div><div class="pk">Revenue</div></div><div><div class="pv">21,350</div><div class="pk">Orders</div></div><div><div class="pv">$38.31</div><div class="pk">Avg Order</div></div></div>
+      </div>
+      <div class="pf"><span class="tt">Excel</span><span class="tt">Seasonality</span><span class="oh">Open Report + Files &#8594;</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&#169; 2025 Adetunji Ademola &nbsp;&#183;&nbsp; <a href="mailto:aypumpi2015@gmail.com" style="color:var(--glow);text-decoration:none">aypumpi2015@gmail.com</a> &nbsp;&#183;&nbsp; <a href="tel:09068807569" style="color:var(--glow);text-decoration:none">09068807569</a></p>
+  <div class="fb">A.Ademola &#8212; Data Analyst</div>
+</footer>
+</div>
+
+<!-- MODAL: ACCENTURE -->
+<div class="mo" id="mo-accenture" onclick="cOut(event,'accenture')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#128202;</div><div>
+      <div class="mt">Accenture Social Media Reaction Analysis</div>
+      <div class="mm">Jun 2020 – Jun 2021  ·  Power BI + Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('accenture')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">24,573</div><div class="kk">Total Reactions</div></div><div class="ki"><div class="kv">973,645</div><div class="kk">Score Points</div></div><div class="ki"><div class="kv">56.2%</div><div class="kk">Positive Sentiment</div></div><div class="ki"><div class="kv">962</div><div class="kk">Content Assets</div></div><div class="ki"><div class="kv">16</div><div class="kk">Categories</div></div><div class="ki"><div class="kv">39.6</div><div class="kk">Avg Score/Reaction</div></div></div>
+  <div class="mf"><a href="Accenture_Reaction_Dataset.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a><a href="Accenture_Reaction_Dashboard.pbix" download class="mfb mfb-pb"><span>&#128200;</span> Power BI Dashboard <span class="mfbl">Download (.pbix)</span></a></div>
+  <div class="mb"><p>ACCENTURE</p>
+<p>Social Media Content &amp; Reaction</p>
+<p>Detailed Performance Analysis Report</p>
+<table class="rt">
+<tr><th>24,573</th><th>962</th><th>16</th><th>12 mo</th></tr>
+<tr><td>Total Reactions</td><td>Unique Content</td><td>Content</td><td>Dataset Period</td></tr>
+<tr><td>Pieces</td><td>Categories</td></tr>
+<tr><td>Reaction events</td><td>Jun 2020 – Jun</td></tr>
+<tr><td>recorded</td><td>Individual</td><td>Distinct topic</td><td>2021</td></tr>
+<tr><td>content assets</td><td>areas</td></tr>
+</table>
+<h4>1. Executive Summary</h4>
+<p>This report presents a comprehensive analysis of Accenture&#x27;s social media content reaction dataset, spanning 24,573 audience interaction events across 962 unique content assets published between June 2020 and June 2021. The dataset encompasses 16 content categories, four media formats (photo, video, GIF, audio), and 16 distinct reaction types mapped to positive, neutral, and negative sentiment tiers through a weighted scoring system.</p>
+<p>The overarching finding is one of strong, consistent audience engagement. More than half of all reactions (56.2%) are positive, and the weighted engagement score totals 973,645 points across the full dataset. The Animals, Science, and Healthy Eating categories anchor performance at the top, collectively delivering over 215,000 score points. The Power BI dashboard distils this into a top-five category view with a combined score of 350,886, providing an executive-ready summary of the highest-value content areas.</p>
+<p>Monthly engagement is remarkably stable at approximately 2,000 reactions per month across all full calendar months, indicating consistent publishing cadence and sustained audience interest rather than episodic viral activity. Content formats perform nearly identically on average score, suggesting that category relevance and reaction quality are the primary performance levers — not the medium itself.</p>
+<p>Three strategic priorities emerge from this analysis: (1) maintaining investment in the top-five categories where positive sentiment rates exceed 84%; (2) increasing content volume in underperforming but viable categories such as Public Speaking, Veganism, and Tennis; and (3)</p>
+<p>optimising GIF deployment, which shows marginally higher negative reaction rates than other formats.</p>
+<p>Key Metrics at a Glance</p>
+<table class="rt">
+<tr><th>24,573</th><th>973,645</th><th>39.6</th><th>56.2%</th></tr>
+<tr><td>Total Reactions</td><td>Total Score</td><td>Average Score</td><td>Positive</td></tr>
+<tr><td>Points</td><td>Sentiment</td></tr>
+<tr><td>Jun 2020 – Jun</td><td>Per reaction</td></tr>
+<tr><td>2021</td><td>All reaction</td><td>event</td><td>Of all</td></tr>
+<tr><td>scores</td><td>reactions</td></tr>
+</table>
+<table class="rt">
+<tr><th>962</th><th>16</th><th>4</th><th>16</th></tr>
+<tr><td>Unique Content</td><td>Categories</td><td>Content Formats</td><td>Reaction Types</td></tr>
+<tr><td>IDs</td></tr>
+<tr><td>Normalised</td><td>Photo · Video ·</td><td>Across 3</td></tr>
+<tr><td>Individual</td><td>GIF · Audio</td><td>sentiment tiers</td></tr>
+<tr><td>assets</td></tr>
+</table>
+<h4>2. Dataset Overview &amp; Structure</h4>
+<h4>2.1 Data Sources</h4>
+<p>The Accenture Reaction Dataset is an Excel workbook containing two worksheets and an accompanying Power BI file.</p>
+<ul>
+<li>Reactions (1): The primary analytical sheet, containing 24,573 rows</li>
+</ul>
+<p>    of timestamped audience reaction records. Each row captures a unique</p>
+<p>    reaction event tied to a Content ID, and includes the Reaction Type,</p>
+<p>    Datetime, Content Type (format), Category, Sentiment, and Score</p>
+<p>    fields. A derived column (&#x27;Sum of each Category&#x27;) aggregates the</p>
+<p>    total score for each content category using a SUMIF formula.</p>
+<ul>
+<li>Sheet2: A summary pivot table listing the top five categories by</li>
+</ul>
+<p>    cumulative score alongside a Grand Total of 350,886 — the source</p>
+<p>    data for the Power BI dashboard&#x27;s primary visualisation.</p>
+<ul>
+<li>Accenture Reaction Analysis Dashboard: The Power BI dashboard file,</li>
+</ul>
+<p>    providing interactive visual exploration of the dataset with a focus</p>
+<p>    on category-level score performance.</p>
+<h4>2.2 Field Definitions</h4>
+<p>  Field           Type          Description</p>
+<p>  Reaction ID     Integer       Sequential row identifier (1 to 24,573)</p>
+<p>  Content ID      UUID String   Unique identifier for each content asset</p>
+<p>                                (962 distinct values)</p>
+<p>  Reaction Type   Categorical   One of 16 specific reactions (e.g. love,</p>
+<p>                                hate, super love, disgust)</p>
+<p>  Datetime        Timestamp     Date and time of the reaction event (Jun</p>
+<p>                                2020 – Jun 2021)</p>
+<p>  Content Type    Categorical   Media format: Photo, Video, GIF, or Audio</p>
+<p>  Category        Categorical   Topic category of the content (16 unique</p>
+<p>                                categories after normalisation)</p>
+<p>  Sentiment       Categorical   Derived tier: Positive, Neutral, or</p>
+<p>                                Negative</p>
+<p>  Score           Integer       Weighted engagement score assigned to each</p>
+<p>                                reaction type (0–75)</p>
+<p>  Sum of each     Integer       Total score per category (SUMIF aggregate</p>
+<p>  Category                      column)</p>
+<h4>2.3 Scoring Framework</h4>
+<p>The dataset employs a fixed weighted scoring system that assigns a numeric engagement value to each of the 16 reaction types. This transforms qualitative emotional responses into quantitative performance signals, enabling category and format comparisons on a common scale. The score range spans from 0 (disgust) to 75 (super love):</p>
+<p>  Reaction Type Sentiment   Score     Reaction Type Sentiment   Score</p>
+<p>  Super Love    Positive    75        Indifferent   Neutral     20</p>
+<p>  Adore         Positive    72        Scared        Negative    15</p>
+<p>  Want          Positive    70        Worried       Negative    12</p>
+<p>  Cherish       Positive    70        Dislike       Negative    10</p>
+<p>  Love          Positive    65        Hate          Negative    5</p>
+<p>  Heart         Positive    60        Disgust       Negative    0</p>
+<p>  Like          Positive    50        Intrigued     Neutral     45</p>
+<p>  Interested    Positive    30        Peeking       Neutral     35</p>
+<p>The scoring architecture has significant analytical implications.</p>
+<p>Because positive reactions carry scores 4–15x higher than negative ones,</p>
+<p>the total score metric is not a simple popularity index — it is a quality-adjusted engagement metric. A piece of content with 1,000 &#x27;super love&#x27; reactions (75,000 points) vastly outperforms one with 1,000 &#x27;like&#x27; reactions (50,000 points), even though both received the same volume of reactions.</p>
+<h4>3. Sentiment Analysis</h4>
+<h4>3.1 Overall Sentiment Distribution</h4>
+<p>Audience sentiment across the full dataset is strongly positive. Of the 24,573 total reaction events:</p>
+<p>  Sentiment   Reaction   % of     Average   Total Score     Strategic</p>
+<p>              Count      Total    Score     Contribution    Implication</p>
+<p>  Positive    13,807     56.2%    59.7      824,518         Primary driver of</p>
+<p>                                                            total score</p>
+<p>  Negative    7,695      31.3%    8.4       64,638          Score dilution;</p>
+<p>                                                            content friction</p>
+<p>  Neutral     3,071      12.5%    27.6      84,759          Passive</p>
+<p>                                                            acknowledgement</p>
+<p>  Total       24,573     100%     39.6      973,645         Full dataset</p>
+<p>Positive reactions contribute 84.7% of the total dataset score despite accounting for only 56.2% of reaction volume. This is the defining statistical feature of the dataset: the score architecture amplifies positive sentiment far beyond its share of reaction count. Conversely,</p>
+<p>negative reactions (31.3% of volume) contribute only 6.6% of the total score — a structural penalty that makes avoiding negative reactions nearly as important as attracting positive ones.</p>
+<h4>3.2 Sentiment Score Distribution</h4>
+<p>The average score gap between tiers is stark: positive reactions average</p>
+<h4>59.7 points versus just 8.4 for negative reactions — a ratio of over</h4>
+<p>7:1. Even neutral reactions (average 27.6) outperform negative ones by 3.3x. This means that a shift of even 1% of reactions from negative to positive could add approximately 700–900 score points to the monthly total, assuming ~2,000 reactions per month.</p>
+<p>The practical content strategy implication is clear: every effort should be made to convert neutral and negative reactions into high-tier positive reactions (super love, adore, want, cherish), since these four reaction types alone carry scores of 70–75 and form the backbone of top-category performance.</p>
+<h4>3.3 Sentiment by Content Format</h4>
+<p>  Content Type Positive      Negative      Neutral      Total     Positive %</p>
+<p>               Reactions     Reactions     Reactions              </p>
+<p>  Photo        3,700         2,057         832          6,589     56.2%</p>
+<p>  Video        3,510         1,943         792          6,245     56.2%</p>
+<p>  GIF          3,381         1,924         774          6,079     55.6%</p>
+<p>  Audio        3,216         1,771         673          5,660     56.8%</p>
+<p>Sentiment ratios are nearly identical across all four formats, with GIF showing the marginally lowest positive rate (55.6%) and Audio the highest (56.8%). This consistency confirms that content category and topic relevance — rather than format choice — are the primary determinants of audience sentiment.</p>
+<h4>4. Category Performance Analysis</h4>
+<h4>4.1 Total Score by Category</h4>
+<p>After normalising category labels (resolving capitalisation inconsistencies in the raw data), 16 distinct categories are identified.</p>
+<p>The chart below ranks all categories by total cumulative score:</p>
+<table class="rt">
+<tr><th>Animals</th><th>74,965</th></tr>
+<tr><td>Science</td><td>-------------------------------------- --</td><td>71,168</td></tr>
+<tr><td>Healthy</td><td>------------------------------------- ---</td><td>69,339</td></tr>
+<tr><td>Eating</td></tr>
+<tr><td>Technology</td><td>------------------------------------- ---</td><td>68,738</td></tr>
+<tr><td>Food</td><td>------------------------------------ ----</td><td>66,676</td></tr>
+<tr><td>Culture</td><td>------------------------------------ ----</td><td>66,579</td></tr>
+<tr><td>Travel</td><td>----------------------------------- -----</td><td>64,880</td></tr>
+<tr><td>Cooking</td><td>----------------------------------- -----</td><td>64,756</td></tr>
+<tr><td>Soccer</td><td>------------------------------- ---------</td><td>57,783</td></tr>
+<tr><td>Education</td><td>------------------------------- ---------</td><td>57,436</td></tr>
+<tr><td>Fitness</td><td>------------------------------ ----------</td><td>55,323</td></tr>
+<tr><td>Studying</td><td>----------------------------- -----------</td><td>54,269</td></tr>
+<tr><td>Dogs</td><td>---------------------------- ------------</td><td>52,511</td></tr>
+<tr><td>Tennis</td><td>--------------------------- -------------</td><td>50,339</td></tr>
+<tr><td>Veganism</td><td>--------------------------- -------------</td><td>49,619</td></tr>
+<tr><td>Public</td><td>-------------------------- --------------</td><td>49,264</td></tr>
+<tr><td>Speaking</td></tr>
+</table>
+<h4>4.2 Top 5 Categories — Deep Dive</h4>
+<p>The five highest-scoring categories (Animals, Science, Healthy Eating,</p>
+<p>Technology, Food) are highlighted by the Power BI dashboard and represent the strategic core of the content programme. Together, they account for 350,886 cumulative score points and an average positive sentiment rate of approximately 85%:</p>
+<p>  Rank   Category      Total     Reaction    Avg Score Positive    Positive %</p>
+<p>                       Score     Count                 Score       </p>
+<p>  1      Animals       74,965    1,897       39.5      63,228      84.3%</p>
+<p>  2      Science       71,168    1,796       39.6      60,246      84.7%</p>
+<p>  3      Healthy       69,339    1,717       40.4      59,284      85.5%</p>
+<p>         Eating                                                    </p>
+<p>  4      Technology    68,738    1,698       40.5      58,628      85.3%</p>
+<p>  5      Food          66,676    1,699       39.2      56,286      84.4%</p>
+<p>Animals (74,965 pts): The top-performing category with the highest reaction count (1,897). Strong emotional resonance driven by broadly appealing, visually rich content. Positive score contribution of 63,228 represents 84.3% of the category total.</p>
+<p>Science (71,168 pts): Second in total score with the highest positive-to-neutral ratio among the top 5. Science content attracts an audience that engages with high-quality curiosity-driven reactions (intrigued, interested, want).</p>
+<p>Healthy Eating (69,339 pts): Highest average score per reaction (40.4)</p>
+<p>among the top 5, indicating that reactions to this category are disproportionately high-value. Likely to benefit from aspirational and lifestyle-positive audience motivations.</p>
+<p>Technology (68,738 pts): Second-highest average score per reaction (40.5) and the strongest positive-reaction concentration. Technology content drives decisive high-score reactions (super love, adore) rather than passive positive engagement.</p>
+<p>Food (66,676 pts): Rounds out the top 5 with consistent performance.</p>
+<p>Food overlaps thematically with Cooking (ranked 8th) and Healthy Eating (ranked 3rd), suggesting that culinary-adjacent content collectively represents the single largest content theme in the portfolio.</p>
+<h4>4.3 Underperforming Categories</h4>
+<p>The bottom four categories — Public Speaking (49,264), Veganism (49,619), Tennis (50,339), and Dogs (52,511) — trail the top category (Animals) by 22,000–25,000 score points. Critically, their sentiment ratios are comparable to top-performers, suggesting the performance gap is driven by lower reaction volume (content reach or publishing frequency) rather than poor content quality:</p>
+<p>  Category      Total     Reaction   Count Gap vs. Positive % Diagnosis</p>
+<p>                Score     Count      Animals                  </p>
+<p>  Public        49,264    1,217      -680          85.2%      Volume</p>
+<p>  Speaking                           reactions                deficit</p>
+<p>  Veganism      49,619    1,248      -649          83.8%      Volume</p>
+<p>                                     reactions                deficit</p>
+<p>  Tennis        50,339    1,328      -569          83.6%      Volume</p>
+<p>                                     reactions                deficit</p>
+<p>  Dogs          52,511    1,338      -559          83.8%      Volume</p>
+<p>                                     reactions                deficit</p>
+<p>All four underperforming categories show positive sentiment rates above 83% — actually comparable to or exceeding several top-5 categories. The solution is not content quality improvement but rather content volume expansion. Increasing publishing frequency in these areas by 20–30% could close the gap by an estimated 10,000–15,000 score points per category per year.</p>
+<h4>5. Content Format Analysis</h4>
+<h4>5.1 Reactions by Format</h4>
+<p>The dataset covers four content formats in broadly similar volumes,</p>
+<p>reflecting a deliberately diversified publishing strategy. Photo leads in total reactions (6,589), followed by Video (6,245), GIF (6,079), and Audio (5,660):</p>
+<p>  Content   Reactions   Share % Avg      Total      Positive % Negative % Neutral %</p>
+<p>  Type                          Score    Score                            </p>
+<p>  Photo     6,589       26.8%   39.9     262,838    56.2%      31.2%      12.6%</p>
+<p>  Video     6,245       25.4%   39.5     246,463    56.2%      31.1%      12.7%</p>
+<p>  GIF       6,079       24.7%   39.2     238,217    55.6%      31.6%      12.7%</p>
+<p>  Audio     5,660       23.0%   40.0     226,127    56.8%      31.3%      11.9%</p>
+<h4>5.2 Format Performance Insights</h4>
+<p>The near-identical average scores across all four formats (39.2–40.0)</p>
+<p>are a meaningful finding: content quality and category alignment drive performance more than format choice. Audiences engage at similar quality levels regardless of whether the content is a photo, video, GIF, or audio piece.</p>
+<ul>
+<li>Audio (avg 40.0): The highest average score despite the lowest</li>
+</ul>
+<p>    reaction volume, and the lowest neutral rate (11.9%). Audio appears</p>
+<p>    to generate stronger emotional polarisation — audiences form clearer</p>
+<p>    opinions, leaning more decisively positive. This may reflect the</p>
+<p>    self-selected nature of audio consumption (users who choose to</p>
+<p>    listen tend to be more invested).</p>
+<ul>
+<li>Photo (avg 39.9): Highest reaction volume and strong average score.</li>
+</ul>
+<p>    Photos are the dominant format in terms of reach, combining</p>
+<p>    accessibility with engagement quality.</p>
+<ul>
+<li>Video (avg 39.5): Solid engagement but slightly lower average score</li>
+</ul>
+<p>    than photo. Video may attract more passive viewers who react with</p>
+<p>    lower-tier positive reactions (like, interested) rather than</p>
+<p>    high-tier ones (adore, super love).</p>
+<ul>
+<li>GIF (avg 39.2, negative rate 31.6%): The lowest average score and</li>
+</ul>
+<p>    the highest negative reaction rate. GIFs may be overused, misaligned</p>
+<p>    with audience expectations, or associated with lower-quality content</p>
+<p>    in certain categories. A targeted review of GIF deployment —</p>
+<p>    particularly in underperforming categories — is recommended.</p>
+<h4>6. Reaction Type Analysis</h4>
+<h4>6.1 Distribution and Score Contribution</h4>
+<p>The 16 reaction types are distributed with notable balance across the dataset — each type receives between 1,475 and 1,622 reactions, a range of only 147 reactions (9.6% variance). This indicates that the content portfolio elicits the full emotional spectrum rather than polarising audience responses:</p>
+<p>  Reaction Type Count   Score   Sentiment   Total            % of Dataset</p>
+<p>                                            Contribution     Score</p>
+<p>  Super Love    1,519   75      Positive    113,925          11.7%</p>
+<p>  Adore         1,548   72      Positive    111,456          11.4%</p>
+<p>  Want          1,539   70      Positive    107,730          11.1%</p>
+<p>  Cherish       1,501   70      Positive    105,070          10.8%</p>
+<p>  Love          1,534   65      Positive    99,710           10.2%</p>
+<p>  Heart         1,622   60      Positive    97,320           9.9%</p>
+<p>  Like          1,520   50      Positive    76,000           7.8%</p>
+<p>  Intrigued     1,475   45      Neutral     66,375           6.8%</p>
+<p>  Peeking       1,559   35      Neutral     54,565           5.6%</p>
+<p>  Interested    1,549   30      Positive    46,470           4.8%</p>
+<p>  Indifferent   1,512   20      Neutral     30,240           3.1%</p>
+<p>  Scared        1,572   15      Negative    23,580           2.4%</p>
+<p>  Worried       1,497   12      Negative    17,964           1.8%</p>
+<p>  Dislike       1,548   10      Negative    15,480           1.6%</p>
+<p>  Hate          1,552   5       Negative    7,760            0.8%</p>
+<p>  Disgust       1,526   0       Negative    0                0.0%</p>
+<h4>6.2 Score Concentration in Top Reactions</h4>
+<p>The top six reaction types by score (super love through heart, scores 60–75) account for 6,263 reactions (25.5% of total volume) but 635,211 score points (65.2% of total score). This extreme concentration confirms that performance optimisation must focus on driving these six reaction types. Content strategy, creative execution, and topic selection should all be evaluated through the lens of their ability to generate super love, adore, want, cherish, love, and heart reactions.</p>
+<p>Conversely, the six negative reaction types (scared, worried, dislike,</p>
+<p>hate, disgust) account for 9,421 reactions (38.3% of volume) but contribute only 64,784 points (6.7% of total score). Disgust alone is received by 1,526 users and contributes zero score points — making it the most damaging reaction type in volume terms.</p>
+<h4>7. Temporal &amp; Engagement Trend Analysis</h4>
+<h4>7.1 Monthly Reaction Volume</h4>
+<p>The dataset spans 13 calendar months from June 2020 to June 2021. The first and last months are partial records; full months span July 2020 through May 2021. Engagement is remarkably consistent across this 11-month core period:</p>
+<p>  Month            Reactions   vs. Monthly Month            Reactions   vs.</p>
+<p>                               Mean                                     Monthly</p>
+<p>                                                                        Mean</p>
+<p>  Jun 2020         892         N/A         Jan 2021         2,126       +6.3%</p>
+<p>  (partial)                                                             </p>
+<p>  Jul 2020         2,070       +3.5%       Feb 2021         1,914       -4.3%</p>
+<p>  Aug 2020         2,114       +5.7%       Mar 2021         2,012       +0.6%</p>
+<p>  Sep 2020         2,022       +1.1%       Apr 2021         1,974       -1.3%</p>
+<p>  Oct 2020         2,056       +2.8%       May 2021         2,138       +6.9%</p>
+<p>  Nov 2020         2,034       +1.7%       Jun 2021         1,129       N/A</p>
+<p>                                           (partial)                    </p>
+<p>  Dec 2020         2,092       +4.6%       Full-Month       ~2,002      —</p>
+<p>                                           Average                      </p>
+<h4>7.2 Engagement Consistency &amp; Seasonality</h4>
+<p>The coefficient of variation across full months is less than 4%,</p>
+<p>confirming that engagement is driven by consistent publishing rhythm and sustained audience interest — not viral events or seasonal spikes. This is a hallmark of a mature content programme with a loyal, habitual audience.</p>
+<ul>
+<li>Peak month: May 2021 (2,138 reactions, +6.9% vs. mean). Possibly</li>
+</ul>
+<p>    driven by post-Q1 content refreshes or campaign-linked content in</p>
+<p>    the spring publishing cycle.</p>
+<ul>
+<li>Through month: February 2021 (1,914 reactions, -4.3% vs. mean). This</li>
+</ul>
+<p>    February dip is consistent with general social media seasonality</p>
+<p>    patterns — a phenomenon widely observed in the post-holiday,</p>
+<p>    early-Q1 period when audience attention temporarily contracts.</p>
+<ul>
+<li>Second-half strength: January and May 2021 were both above-average</li>
+</ul>
+<p>    months, suggesting that content momentum builds through the first</p>
+<p>    half of each year. Pre-scheduling high-engagement content in late</p>
+<p>    January and early February could smooth the seasonal dip.</p>
+<p>The stable cadence also means that monthly score projections are highly reliable. At the observed average of 2,000 reactions per month with a mean score of 39.6, the expected monthly score contribution is approximately 79,200 points — a baseline that can be used for target-setting and performance tracking in future periods.</p>
+<h4>8. Power BI Dashboard Analysis</h4>
+<h4>8.1 Dashboard Summary (Sheet2 &amp; .pbix)</h4>
+<p>The Power BI dashboard visualises the dataset&#x27;s most strategically relevant metrics. Its primary data source is the Sheet2 pivot table,</p>
+<p>which presents a curated top-five category summary alongside a Grand Total:</p>
+<p>  Rank   Category       Sum of Score % of Top-5   Dashboard Role   Full</p>
+<p>                                     Total                         Dataset</p>
+<p>                                                                   Rank</p>
+<p>  1      Animals        74,965       21.4%        Primary bar      1st</p>
+<p>                                                  (tallest)        </p>
+<p>  2      Science        71,168       20.3%        Second bar       2nd</p>
+<p>  3      Healthy Eating 69,339       19.8%        Third bar        3rd</p>
+<p>  4      Technology     68,738       19.6%        Fourth bar       4th</p>
+<p>  5      Food           66,676       19.0%        Fifth bar        5th</p>
+<p>  —      Grand Total    350,886      100%         Summary KPI card —</p>
+<h4>8.2 Dashboard Design Rationale</h4>
+<p>The dashboard is deliberately designed for executive consumption rather than deep-dive analytical exploration. The top-five filter concentrates stakeholder attention on the highest-value content segments, enabling fast decision-making about content investment priorities without exposing the full 16-category complexity.</p>
+<p>An important note for analysts: the Grand Total figure displayed on the dashboard (350,886) represents only the top-five categories and accounts for 36.0% of the full dataset score (973,645). The remaining 64.0% is distributed across 11 other categories that contribute meaningfully to the programme&#x27;s overall performance. Stakeholders reviewing the dashboard should be informed of this scoping to avoid misinterpreting the Grand Total as the programme-wide figure.</p>
+<p>The dashboard&#x27;s visual hierarchy — with Animals as the tallest bar — immediately communicates the top-performing category and implicitly surfaces the scoring gap between tier-one (Animals, Science, Healthy Eating) and tier-two (Technology, Food) performers. The relatively even bar heights across the top five also signal programmatic consistency,</p>
+<p>which is a positive indicator for content portfolio health.</p>
+<h4>9. Strategic Recommendations</h4>
+<p>Based on the analysis above, six targeted recommendations are presented below, ordered by estimated impact on total engagement score:</p>
+<p>Recommendation 1: Maintain and Deepen Investment in Top-5 Categories</p>
+<p>Animals, Science, Healthy Eating, Technology, and Food consistently deliver the highest cumulative scores and the highest positive sentiment rates (84–86%). Content investment in these categories should be maintained or increased. In particular, Healthy Eating and Technology show the highest average scores per reaction (40.4 and 40.5,</p>
+<p>respectively), suggesting the strongest audience-content fit and the greatest marginal return on additional content.</p>
+<p>Estimated impact: +15,000–25,000 score points per quarter for each 10% increase in content volume in these categories.</p>
+<p>Recommendation 2: Increase Content Volume in Underperforming Categories</p>
+<p>Public Speaking, Veganism, Tennis, and Dogs show sentiment quality comparable to top performers (83–85% positive) but generate 35–43% fewer reactions. The root cause is content volume or reach, not content quality. A targeted 25–30% increase in publishing frequency for these four categories — without any change in content approach — could close the gap by an estimated 10,000–15,000 score points per category per year.</p>
+<p>Estimated impact: +40,000–60,000 combined score points annually across the four categories.</p>
+<p>Recommendation 3: Optimise GIF Format Deployment</p>
+<p>GIF content produces the lowest average score (39.2) and the highest negative reaction rate (31.6%) of all formats. While the differences are modest, they are consistent. A strategic review should examine which categories GIFs are being used in and whether they are aligned with audience expectations. Redirecting GIF publishing toward Animals and Science — where emotional resonance is highest — and away from more serious categories (Education, Public Speaking) could improve GIF performance metrics.</p>
+<p>Estimated impact: +0.3–0.5 average score points per GIF reaction,</p>
+<p>translating to ~1,800–3,000 additional score points over the full GIF reaction pool.</p>
+<p>Recommendation 4: Target High-Tier Positive Reactions in Content Design</p>
+<p>The top six reaction types (super love through heart, scores 60–75)</p>
+<p>generate 65.2% of the total score from just 25.5% of reactions. Content briefs, creative reviews, and A/B testing should explicitly optimise for the conditions that drive these reactions: emotional surprise,</p>
+<p>aspiration, delight, and strong personal relevance. Formats and topics with a track record of generating adore and super love reactions should be tracked and replicated.</p>
+<p>Estimated impact: A 2% shift from positive (average 59.7) to high-tier positive (average 71.4) reactions would add approximately 2,300 score points per month.</p>
+<p>Recommendation 5: Address the February Engagement Dip</p>
+<p>February 2021 recorded the lowest full-month engagement of the dataset period (1,914 reactions, -4.3% vs. mean). This seasonal pattern should be monitored in future years. A pre-scheduled content push in late January — featuring high-engagement categories (Animals, Science,</p>
+<p>Healthy Eating) and high-performing formats (photo, audio) — could sustain momentum through the traditionally slower early-Q1 period.</p>
+<p>Estimated impact: Restoring February to the monthly mean (2,000+ reactions) would add ~3,400 score points to the annual total.</p>
+<p>Recommendation 6: Separate Dashboard Reporting from Full Dataset Analytics</p>
+<p>The current Power BI dashboard surfaces only the top-5 category view (Grand Total: 350,886). For full programme visibility, a secondary dashboard view or supplementary report should present the complete 16-category breakdown. This is particularly important for monitoring the middle tier (Culture, Travel, Cooking, Soccer, Education) and identifying emerging category growth that would not appear in the top-5 view.</p>
+<h4>10. Conclusion</h4>
+<p>The Accenture Social Media Reaction Dataset reveals a content programme with strong, well-established performance fundamentals. Engagement is consistent, sentiment is predominantly positive, and the top-performing categories demonstrate high audience-content fit with positive rates consistently above 84%. The 16-type reaction scoring system provides granular emotional intelligence that goes far beyond binary like/dislike metrics, enabling nuanced analysis of engagement quality.</p>
+<p>The total dataset score of 973,645 points — driven by 24,573 reactions over 12 months — represents a baseline of approximately 81,000 score points per month. With focused execution on the recommendations above,</p>
+<p>particularly volume expansion in underperforming categories and creative optimisation for high-tier positive reactions, a 10–15% improvement in monthly score is achievable without increasing the total content asset count.</p>
+<p>The Power BI dashboard provides an effective executive view of the top-five category performance, and its Grand Total of 350,886 should be understood as a strategic lens on the highest-value segments rather than the programme total. Full analytical coverage of all 16 categories is essential for operational content planning and resource allocation.</p>
+<p>In summary, Accenture&#x27;s social content programme is performing well and is well-structured for continued growth. The path to higher performance runs through volume discipline, format optimisation, and a relentless focus on driving the emotional reactions that the scoring system rewards most: super love, adore, want, cherish, and love.</p></div>
+</div></div>
+<!-- MODAL: AIRLINE -->
+<div class="mo" id="mo-airline" onclick="cOut(event,'airline')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#9992;</div><div>
+      <div class="mt">Airline Passenger Satisfaction Analysis</div>
+      <div class="mm">129,880 Passengers  ·  Power BI + Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('airline')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">129,880</div><div class="kk">Passengers</div></div><div class="ki"><div class="kv">43.4%</div><div class="kk">Overall Sat.</div></div><div class="ki"><div class="kv">69.4%</div><div class="kk">Business Class</div></div><div class="ki"><div class="kv">18.8%</div><div class="kk">Economy Class</div></div><div class="ki"><div class="kv">14.7 min</div><div class="kk">Avg Dep. Delay</div></div><div class="ki"><div class="kv">43.5%</div><div class="kk">Flights Delayed</div></div></div>
+  <div class="mf"><a href="Airline_data.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a><a href="Airline_Analysis.pbix" download class="mfb mfb-pb"><span>&#128200;</span> Power BI Dashboard <span class="mfbl">Download (.pbix)</span></a></div>
+  <div class="mb"><p>AIRLINE PASSENGER</p>
+<p>SATISFACTION ANALYSIS</p>
+<p>REPORT</p>
+<h4>1. Executive Summary</h4>
+<p>This report presents a comprehensive analysis of airline passenger satisfaction drawn from a dataset of 129,880 travellers. Data was sourced from both a Power BI interactive dashboard and a structured Excel workbook containing raw passenger records and pivot table summaries. The analysis examines satisfaction outcomes across key dimensions, including travel class, trip purpose, customer loyalty status, passenger demographics, flight distance, and service quality ratings.</p>
+<p>Overall, the airline faces a significant satisfaction challenge: only 43.4% of passengers reported being satisfied with their experience,</p>
+<p>while 56.6% were neutral or dissatisfied. However, performance varies markedly across passenger segments — Business Class travellers on long-haul business trips show satisfaction rates exceeding 69%, while Economy Class personal travellers register rates as low as 10.2%. These divergences highlight both areas of strength and urgent areas requiring intervention.</p>
+<table class="rt">
+<tr><th>129,880</th><th>43.4%</th><th>56.6%</th><th>14.7 min</th></tr>
+<tr><td>Total</td><td>Overall</td><td>Neutral or</td><td>Avg Departure</td></tr>
+<tr><td>Passengers</td><td>Satisfaction</td><td>Dissatisfied</td><td>Delay</td></tr>
+<tr><td>Surveyed</td><td>Rate</td></tr>
+</table>
+<table class="rt">
+<tr><th>69.4%</th><th>18.8%</th><th>58.4%</th><th>10.1%</th></tr>
+<tr><td>Business Class</td><td>Economy Class</td><td>Business Travel</td><td>Personal Travel</td></tr>
+<tr><td>Satisfaction</td><td>Satisfaction</td><td>Satisfaction</td><td>Satisfaction</td></tr>
+</table>
+<p>Key Findings at a Glance</p>
+<ul>
+<li>Business Class passengers are nearly 3.7x more satisfied than</li>
+</ul>
+<p>  Economy Class passengers (69.4% vs 18.8%).</p>
+<ul>
+<li>Business travellers are 5.8x more satisfied than personal travellers</li>
+</ul>
+<p>  (58.4% vs 10.1%).</p>
+<ul>
+<li>Returning customers are twice as likely to be satisfied compared to</li>
+</ul>
+<p>  first-time flyers (47.8% vs 24.0%).</p>
+<ul>
+<li>Ultra long-haul flights (&gt;2,000 km) generate the highest</li>
+</ul>
+<p>  satisfaction (69.7%), while medium-haul routes perform the worst</p>
+<p>  (32.5%).</p>
+<ul>
+<li>In-flight Wifi Service (avg: 2.73/5) and Ease of Online Booking</li>
+</ul>
+<p>  (avg: 2.76/5) are the lowest-rated service attributes.</p>
+<ul>
+<li>The 46–60 age group is the most satisfied demographic (57.4%), while</li>
+</ul>
+<p>  Under-18 passengers are the least satisfied (16.7%).</p>
+<h4>2. Dataset Overview</h4>
+<p>The dataset comprises 129,880 individual passenger records captured across multiple flight routes, classes, and trip types. Each record includes passenger demographics (age, gender), travel characteristics (class, trip purpose, flight distance), satisfaction ratings across 14 service touchpoints (scored 1–5), delay information, and an overall satisfaction outcome classified as either &#x27;Satisfied&#x27; or &#x27;Neutral or Dissatisfied&#x27;.</p>
+<h4>2.1 Passenger Class Distribution</h4>
+<p>  Travel Class            No. of Passengers       % of Total</p>
+<p>  Business                62,160                  47.9%</p>
+<p>  Economy                 58,309                  44.9%</p>
+<p>  Economy Plus            9,411                   7.2%</p>
+<p>  Grand Total             129,880                 100%</p>
+<p>Business Class carries the plurality of passengers (47.9%), followed closely by Economy (44.9%). Economy Plus is a niche segment at 7.2%.</p>
+<h4>2.2 Travel Purpose &amp; Customer Loyalty</h4>
+<p>  Category                Segment                 Count / Share</p>
+<p>  Type of Travel          Business Travel         89,693 (69.1%)</p>
+<p>                          Personal Travel         40,187 (30.9%)</p>
+<p>  Customer Type           Returning Customers     106,100 (81.7%)</p>
+<p>                          First-time Customers    23,780 (18.3%)</p>
+<p>The passenger base is predominantly business travellers (69.1%) and returning customers (81.7%), suggesting a largely corporate and loyal ridership. This composition is significant, as both segments have markedly different satisfaction drivers.</p>
+<h4>3. Satisfaction Analysis by Segment</h4>
+<h4>3.1 By Travel Class</h4>
+<p>Travel class is the single strongest predictor of passenger satisfaction in this dataset. The contrast between the Business and Economy classes is stark and statistically significant.</p>
+<p>  Travel Class     Neutral/Dissatisfied   Satisfied        Total       Satisfaction %</p>
+<p>  Business         18,994                 43,166           62,160      69.4%</p>
+<p>  Economy          47,366                 10,943           58,309      18.8%</p>
+<p>  Economy Plus     7,092                  2,319            9,411       24.6%</p>
+<p>  Grand Total      73,452                 56,428           129,880     43.4%</p>
+<p>  Business Class passengers are 3.7x more likely to be satisfied than</p>
+<p>  Economy Class passengers. Economy Plus performs only marginally better</p>
+<p>  than standard Economy, suggesting inadequate differentiation of the</p>
+<p>  product offering.</p>
+<h4>3.2 By Type of Travel</h4>
+<p>Trip purpose — whether a passenger is flying for business or personal reasons — is another powerful satisfaction differentiator.</p>
+<p>  Travel Type       Neutral/Dissatisfied   Satisfied       Total      Satisfaction %</p>
+<p>  Business Travel   37,337                 52,356          89,693     58.4%</p>
+<p>  Personal Travel   36,115                 4,072           40,187     10.1%</p>
+<p>  Grand Total       73,452                 56,428          129,880    43.4%</p>
+<p>Personal travellers are overwhelmingly dissatisfied (89.9%), possibly driven by higher price sensitivity, different service expectations, and a higher representation in Economy Class. Business travellers,</p>
+<p>benefiting from corporate travel privileges and often travelling Business Class, show a far stronger satisfaction rate of 58.4%.</p>
+<h4>3.3 By Customer Loyalty Status</h4>
+<p>  Customer Type     Neutral/Dissatisfied   Satisfied       Total      Satisfaction %</p>
+<p>  Returning         55,372                 50,728          106,100    47.8%</p>
+<p>  Customers                                                           </p>
+<p>  First-time        18,080                 5,700           23,780     24.0%</p>
+<p>  Customers                                                           </p>
+<p>  Grand Total       73,452                 56,428          129,880    43.4%</p>
+<p>Returning customers are nearly twice as satisfied as first-time flyers.</p>
+<p>First-time passengers may have higher initial expectations or less familiarity with the airline&#x27;s service model. Capturing first-time flyers and converting them to loyal returning customers is a critical growth lever given the satisfaction gap.</p>
+<h4>3.4 By Gender</h4>
+<p>  Gender            Neutral/Dissatisfied   Satisfied       Total      Satisfaction %</p>
+<p>  Female            37,630                 28,269          65,899     42.9%</p>
+<p>  Male              35,822                 28,159          63,981     44.0%</p>
+<p>  Total             73,452                 56,428          129,880    43.4%</p>
+<p>Gender has minimal impact on satisfaction outcomes. Male passengers are marginally more satisfied (44.0%) than female passengers (42.9%), but the 1.1 percentage point gap is not operationally significant. Service improvement initiatives need not be gender-differentiated.</p>
+<h4>3.5 By Age Group</h4>
+<p>Age group reveals a U-shaped satisfaction pattern, with middle-aged passengers (46–60) being the most satisfied and the youngest (Under-18)</p>
+<p>and oldest (60+) cohorts being the least satisfied.</p>
+<p>  Age Group    Neutral/Dissatisfied   Satisfied        Total        Satisfaction %</p>
+<p>  Under 18     8,200                  1,647            9,847        16.7%</p>
+<p>  18–30        20,106                 10,927           31,033       35.2%</p>
+<p>  31–45        21,236                 20,246           41,482       48.8%</p>
+<p>  46–60        15,949                 21,515           37,464       57.4%</p>
+<p>  60+          7,961                  2,093            10,054       20.8%</p>
+<p>  Total        73,452                 56,428           129,880      43.4%</p>
+<p>  The 46–60 age group (57.4% satisfied) drives much of the overall</p>
+<p>  satisfaction. Under-18 (16.7%) and 60+ (20.8%) passengers have very</p>
+<p>  low satisfaction — likely due to different needs around digital</p>
+<p>  accessibility, physical comfort, and travel purpose (predominantly</p>
+<p>  personal travel).</p>
+<h4>3.6 By Flight Distance Band</h4>
+<p>Flight distance shows a non-linear relationship with satisfaction.</p>
+<p>Contrary to the intuition that longer flights may frustrate passengers,</p>
+<p>ultra-long-haul travel is associated with the highest satisfaction.</p>
+<p>  Distance Band    Neutral/Dissatisfied   Satisfied        Total      Satisfaction %</p>
+<p>  Ultra (&gt;2,000    8,137                  18,730           26,867     69.7%</p>
+<p>  km)                                                                 </p>
+<p>  Long             15,045                 12,865           27,910     46.1%</p>
+<p>  (1,000–2,000 km)                                                    </p>
+<p>  Short (&lt;500 km)  26,629                 13,443           40,072     33.5%</p>
+<p>  Medium           23,641                 11,390           35,031     32.5%</p>
+<p>  (500–1,000 km)                                                      </p>
+<p>  Grand Total      73,452                 56,428           129,880    43.4%</p>
+<p>Ultra long-haul flights (&gt;2,000 km) record a 69.7% satisfaction rate — on par with Business Class. This may reflect that long-haul routes attract more business travellers, offer better onboard amenities, or that passengers are more accustomed to the premium service experience on flagship routes. Short and medium-haul routes, often domestic or regional, significantly underperform.</p>
+<h4>4. Class × Travel Type Cross-Analysis</h4>
+<p>The Analysis of travel class against trip purpose reveals the most granular picture of where satisfaction thrives or fails.</p>
+<p>  Segment            Neutral/Dissatisfied   Satisfied    Total        Sat. %  Status</p>
+<p>  Business Class —   16,634                 42,853       59,487       72.0%   ✓</p>
+<p>  Business Travel                                                             </p>
+<p>  Business Class —   2,360                  313          2,673        11.7%   ✗</p>
+<p>  Personal Travel                                                             </p>
+<p>  Economy Class —    17,726                 7,578        25,304       29.9%   ~</p>
+<p>  Business Travel                                                             </p>
+<p>  Economy Class —    29,640                 3,365        33,005       10.2%   ✗</p>
+<p>  Personal Travel                                                             </p>
+<p>  Economy Plus —     2,977                  1,925        4,902        39.3%   ~</p>
+<p>  Business Travel                                                             </p>
+<p>  Economy Plus —     4,115                  394          4,509        8.7%    ✗</p>
+<p>  Personal Travel                                                             </p>
+<p>The dominant theme is clear: Business Class business travellers are the airline&#x27;s core satisfied segment (72.0%), while personal travellers in all three classes are severely dissatisfied, with Economy Class personal travellers at a critically low 10.2%.</p>
+<h4>5. Service Quality Analysis</h4>
+<p>Passengers rated 14 service dimensions on a scale of 1 to 5. The Excel pivot tables break these down by overall satisfaction group — &#x27;Satisfied&#x27; vs &#x27;Neutral or Dissatisfied&#x27; — revealing which service areas drive or hinder satisfaction.</p>
+<h4>5.1 Overall Average Service Ratings</h4>
+<p>  Service Attribute             Satisfied     Neutral/Dissatisfied   Overall Avg</p>
+<p>                                (avg)         (avg)                  </p>
+<p>  In-flight Service             3.97          3.39                   3.64</p>
+<p>  Baggage Handling              3.97          3.37                   3.63</p>
+<p>  Seat Comfort                  3.97          3.04                   3.44</p>
+<p>  On-board Service              3.86          3.02                   3.38</p>
+<p>  In-flight Entertainment       3.96          2.89                   3.36</p>
+<p>  Leg Room Service              3.82          2.99                   3.35</p>
+<p>  Check-in Service              3.53          3.10                   3.31</p>
+<p>  Cleanliness                   3.75          2.93                   3.29</p>
+<p>  Online Boarding               4.03          2.66                   3.25</p>
+<p>  Food &amp; Drink                  3.53          2.96                   3.20</p>
+<p>  Departure &amp; Arrival           —             —                      3.06</p>
+<p>  Convenience                                                        </p>
+<p>  Gate Location                 —             —                      2.98</p>
+<p>  Ease of Online Booking        3.03          2.55                   2.76</p>
+<p>  In-flight Wifi Service        3.16          2.40                   2.73</p>
+<p>  The largest satisfaction gaps between satisfied and dissatisfied</p>
+<p>  groups occur for: Online Boarding (4.03 vs 2.66, a gap of 1.37),</p>
+<p>  In-flight Entertainment (3.96 vs 2.89, gap of 1.07), and Seat Comfort</p>
+<p>  (3.97 vs 3.04, gap of 0.93). These attributes most strongly</p>
+<p>  differentiate satisfied from dissatisfied passengers.</p>
+<h4>5.2 Bottom-Performing Services (Requiring Urgent Attention)</h4>
+<ul>
+<li>In-flight Wifi Service (2.73/5): The lowest-rated attribute overall.</li>
+</ul>
+<p>  Poor connectivity is a major pain point, especially for business</p>
+<p>  travellers who depend on it for productivity.</p>
+<ul>
+<li>Ease of Online Booking (2.76/5): Digital booking friction directly</li>
+</ul>
+<p>  reduces satisfaction before the flight even begins.</p>
+<ul>
+<li>Gate Location (2.98/5): Airport infrastructure may be outside direct</li>
+</ul>
+<p>  airline control, but it impacts perceived service quality.</p>
+<ul>
+<li>Departure &amp; Arrival Time Convenience (3.06/5): Scheduling</li>
+</ul>
+<p>  inconvenience affects both business and personal travellers.</p>
+<h4>6. Operational Performance — Delay Analysis</h4>
+<p>Departure and arrival delays represent a key operational metric with direct bearing on passenger satisfaction. The dataset captures both departure delay (in minutes) and arrival delay for each passenger record.</p>
+<p>  Delay Metric                   Value                Implication</p>
+<p>  Average Departure Delay        14.7 minutes         Moderate — impact on</p>
+<p>                                                      tight connections</p>
+<p>  Average Arrival Delay          15.1 minutes         Higher than</p>
+<p>                                                      departure — missed</p>
+<p>                                                      connections</p>
+<p>  Flights with Any Delay (&gt;0     43.5% of all flights Nearly half of all</p>
+<p>  min)                                                flights are delayed</p>
+<p>Delays affect 43.5% of all passengers surveyed. The average arrival delay (15.1 minutes) is slightly higher than the average departure delay (14.7 minutes), suggesting that some delays are compounded during flight or at arrival airports. Persistent delays erode satisfaction,</p>
+<p>particularly for business travellers with tight schedules and personal travellers who may have onward transport arrangements.</p>
+<p>  Reducing delay frequency and improving on-time performance should be a</p>
+<p>  key operational priority, especially given that personal travellers —</p>
+<p>  who already have the lowest satisfaction scores — are also likely more</p>
+<p>  affected by schedule disruptions.</p>
+<h4>7. Strategic Recommendations</h4>
+<p>Based on the data analysis, the following recommendations are prioritised by potential impact and urgency.</p>
+<h4>7.1 Critical Priority — Economy Class &amp; Personal Traveller Experience</h4>
+<p>Economy Class personal travellers represent the single largest dissatisfied segment (10.2% satisfaction across 33,005 passengers).</p>
+<p>Targeted interventions should include:</p>
+<ul>
+<li>Introduce a leisure-focused service tier within Economy with</li>
+</ul>
+<p>  improved seat comfort, food quality, and entertainment options,</p>
+<p>  particularly on short and medium-haul routes.</p>
+<ul>
+<li>Redesign the Economy Plus product to create a more meaningful</li>
+</ul>
+<p>  differentiation from Economy (currently only 5.8 percentage points</p>
+<p>  higher in satisfaction). Economy Plus underperforms as a bridging</p>
+<p>  product.</p>
+<ul>
+<li>Offer flexible check-in, digital boarding passes, and simplified</li>
+</ul>
+<p>  luggage tracking for personal travellers who prioritise convenience.</p>
+<h4>7.2 High Priority — Digital Service Improvements</h4>
+<p>Two of the lowest-rated services (Wifi and Online Booking) are digital areas where targeted investment yields disproportionate returns:</p>
+<ul>
+<li>Upgrade in-flight Wifi infrastructure to offer reliable, high-speed</li>
+</ul>
+<p>  connectivity, ideally with tiered pricing or complimentary basic</p>
+<p>  access for business travellers.</p>
+<ul>
+<li>Redesign the online booking platform with a streamlined UX, fewer</li>
+</ul>
+<p>  steps to purchase, and better mobile responsiveness to improve the</p>
+<p>  pre-flight experience.</p>
+<ul>
+<li>Improve the Online Boarding process, which is highly valued by</li>
+</ul>
+<p>  satisfied passengers (avg: 4.03) but poorly delivered to dissatisfied</p>
+<p>  ones (avg: 2.66).</p>
+<h4>7.3 High Priority — First-Time Customer Conversion</h4>
+<p>With only 24.0% of first-time customers satisfied (vs 47.8% for returning customers), the airline faces a critical customer conversion challenge:</p>
+<ul>
+<li>Develop a &#x27;First Flight Welcome&#x27; programme offering enhanced</li>
+</ul>
+<p>  onboarding communication, gate assistance, and post-flight feedback</p>
+<p>  engagement.</p>
+<ul>
+<li>Implement a loyalty-linked satisfaction tracking system to identify</li>
+</ul>
+<p>  first-time flyers at risk of churning and proactively address</p>
+<p>  concerns.</p>
+<h4>7.4 Moderate Priority — Age-Specific Service Design</h4>
+<p>The wide satisfaction gap across age groups (16.7% for Under-18 to 57.4% for 46–60 year olds) calls for age-sensitive service adaptations:</p>
+<ul>
+<li>For younger passengers (Under-18): Improve entertainment options,</li>
+</ul>
+<p>  family-friendly seating policies, and simplified digital check-in for</p>
+<p>  parents travelling with children.</p>
+<ul>
+<li>For older passengers (60+): Prioritise physical comfort (leg room,</li>
+</ul>
+<p>  seat cushioning), reduce digital friction (offer staff-assisted</p>
+<p>  check-in), and provide clear, large-font cabin communications.</p>
+<h4>7.5 Operational Priority — Delay Reduction</h4>
+<ul>
+<li>Invest in predictive scheduling tools and ground operations</li>
+</ul>
+<p>  coordination to reduce the 43.5% flight delay rate.</p>
+<ul>
+<li>Implement proactive passenger communication during delays —</li>
+</ul>
+<p>  real-time updates via app and SMS — to mitigate the satisfaction</p>
+<p>  impact of unavoidable delays.</p>
+<ul>
+<li>Target arrival delay specifically (15.1 min average), as this</li>
+</ul>
+<p>  directly affects onward transport and is strongly associated with</p>
+<p>  dissatisfaction.</p>
+<h4>8. Conclusion</h4>
+<p>This analysis of 129,880 airline passengers reveals a business with deeply bifurcated performance. On one end, Business Class travellers flying for corporate purposes — particularly on ultra-long-haul routes — demonstrate satisfaction rates of 69–72%, reflecting a premium product that largely meets expectations. On the other end, Economy Class personal travellers, younger passengers, and first-time flyers record satisfaction rates of 10–25%, indicating systemic service failures in the standard fare tier.</p>
+<p>The airline&#x27;s strengths — strong in-flight service, baggage handling,</p>
+<p>and an engaged returning customer base — provide a foundation to build upon. However, the digital experience (Wifi and online booking),</p>
+<p>operational reliability (43.5% of flights delayed), and Economy product quality require urgent, targeted investment to prevent further erosion of customer loyalty and brand reputation.</p>
+<p>Closing the satisfaction gap between Business and Economy class, and between business and personal travellers, will be the defining challenge for the airline&#x27;s next performance cycle. Success in these areas will not only improve average satisfaction scores but also materially reduce customer churn and increase revenue from the currently underserved leisure travel segment.</p>
+<p>  Target: Raise overall satisfaction from 43.4% to at least 55% within</p>
+<p>  18 months through focused interventions in Economy Class product</p>
+<p>  quality, digital services, and on-time operational performance.</p>
+<p>Appendix — Summary Statistics</p>
+<p>Service Ratings by Satisfaction Group (Pivot Table — Excel Source)</p>
+<p>  Service Metric            Satisfied     Neutral/Dissatisfied   Grand Total   Gap</p>
+<p>  In-flight Entertainment   3.96          2.89                   3.36          1.07</p>
+<p>  In-flight Wifi Service    3.16          2.40                   2.73          0.76</p>
+<p>  Online Booking            3.03          2.55                   2.76          0.48</p>
+<p>  Online Boarding           4.03          2.66                   3.25          1.37</p>
+<p>  Baggage Handling          3.97          3.37                   3.63          0.60</p>
+<p>  In-flight Service         3.97          3.39                   3.64          0.58</p>
+<p>  Food &amp; Drink              3.53          2.96                   3.20          0.57</p>
+<p>  Cleanliness               3.75          2.93                   3.29          0.82</p>
+<p>  Leg Room Service          3.82          2.99                   3.35          0.83</p>
+<p>  Seat Comfort              3.97          3.04                   3.44          0.93</p>
+<p>  On-board Service          3.86          3.02                   3.38          0.84</p>
+<p>  Overall Average           3.73          2.93                   3.28          0.80</p>
+<p>Note: Ratings are on a 1–5 scale. Gap = Satisfied minus Neutral/Dissatisfied average. A higher gap indicates greater importance of the attribute in driving satisfaction outcomes.</p></div>
+</div></div>
+<!-- MODAL: AYO -->
+<div class="mo" id="mo-ayo" onclick="cOut(event,'ayo')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#128722;</div><div>
+      <div class="mt">Ayo Sales Analysis – West &amp; South Africa</div>
+      <div class="mm">July 2021  ·  Nigeria &amp; South Africa  ·  Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('ayo')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">8,904</div><div class="kk">Total Orders</div></div><div class="ki"><div class="kv">89.4%</div><div class="kk">Delivery Success</div></div><div class="ki"><div class="kv">65.3%</div><div class="kk">Late Delivery</div></div><div class="ki"><div class="kv">2,072</div><div class="kk">Unique Outlets</div></div><div class="ki"><div class="kv">~40.9 hrs</div><div class="kk">Avg Fulfilment</div></div><div class="ki"><div class="kv">55.4%</div><div class="kk">Mobile App</div></div></div>
+  <div class="mf"><a href="Ayo_Sales.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a></div>
+  <div class="mb"><p>SALES DATA ANALYSIS REPORT</p>
+<p>Orders — July 2021</p>
+<p>Retail Distribution Operations | West &amp; South Africa Markets</p>
+<p>All figures expressed in USD (Exchange Rate: NGN 402.00 | ZAR 14.72)</p>
+<h4>1. Executive Summary</h4>
+<p>This report presents a comprehensive analysis of sales order data for the month of July 2021, covering retail distribution operations across Nigeria (NG) and South Africa (ZA). The dataset encompasses 8,904 total orders spanning three outlet types, multiple product categories, and various sales channels. This document provides insights into order volume, delivery performance, product demand patterns, fulfilment efficiency, and producer-level activity.</p>
+<p>Key findings at a glance:</p>
+<ul>
+<li>Total orders processed in July 2021: 8,904</li>
+</ul>
+<ul>
+<li>Delivery success rate: 89.4% (7,957 delivered; 947 cancelled)</li>
+</ul>
+<ul>
+<li>Late delivery rate: 65.3% — a critical performance gap requiring</li>
+</ul>
+<p>    attention</p>
+<ul>
+<li>Average fulfilment time across all orders: approximately 1 day and</li>
+</ul>
+<p>    16 hours 55 minutes</p>
+<ul>
+<li>Top product category by volume: Fabric Clean (2,495 orders)</li>
+</ul>
+<ul>
+<li>Leading sales channel: Mobile App (2,624 line items) out of 4,741</li>
+</ul>
+<p>    total</p>
+<ul>
+<li>Highest average order quantity producer: Flour Mills of Nigeria</li>
+</ul>
+<p>    (15.67 units/order)</p>
+<h4>2. Key Performance Indicators</h4>
+<p>The table below summarises the headline metrics derived from the July</p>
+<h4>2021 orders dataset.</h4>
+<table class="rt">
+<tr><th>8,904</th><th>7,957</th><th>947</th></tr>
+<tr><td>Total Orders</td><td>Delivered Orders</td><td>Cancelled Orders</td></tr>
+<tr><td>July 2021</td><td>89.4% success rate</td><td>10.6% cancellation</td></tr>
+<tr><td>rate</td></tr>
+</table>
+<table class="rt">
+<tr><th>2,072</th><th>~40.9 hrs</th><th>65.3%</th></tr>
+<tr><td>Unique Outlets</td><td>Avg. Fulfilment Time</td><td>Late Delivery Rate</td></tr>
+<tr><td>3 outlet types</td><td>All orders</td><td>Needs improvement</td></tr>
+</table>
+<h4>3. Order Volume &amp; Distribution</h4>
+<h4>3.1 Orders by Hour of Day</h4>
+<p>A total of 3,151 orders were recorded within a specific three-hour window (hours 10, 11, and 12), indicating strong mid-morning ordering activity. The breakdown is as follows:</p>
+<p>  Hour of Day                 Count of Orders         % of 3-Hour Window</p>
+<p>  10:00                       1,062                   33.7%</p>
+<p>  11:00                       1,112                   35.3%</p>
+<p>  12:00                       977                     31.0%</p>
+<p>  Total                       3,151                   100.0%</p>
+<p>The peak ordering hour is 11:00, accounting for 35.3% of orders in this window, suggesting that sales personnel and automated ordering systems are most active in the late morning period. This insight can be leveraged to optimise staffing schedules and ensure sufficient system capacity during peak hours.</p>
+<h4>3.2 Orders by Outlet Type</h4>
+<p>Retail outlet types are categorised into three segments: Convenience Stores, Kiosks, and Supermarkets. The distribution is remarkably even across all three, indicating broad market penetration across retail formats.</p>
+<p>  Outlet Type           Unique Outlets  % Share        Unique Product</p>
+<p>                                                       Variants</p>
+<p>  Convenience Store     700             33.8%          86</p>
+<p>  Kiosk                 698             33.7%          90</p>
+<p>  Supermarket           674             32.5%          88</p>
+<p>  Grand Total           2,072           100.0%         264</p>
+<p>Kiosks carry the highest number of unique product variants (90),</p>
+<p>followed closely by Supermarkets (88) and Convenience Stores (86). This near-uniform spread of 264 total product variants suggests a well-standardised product assortment strategy across all outlet formats.</p>
+<p>The balance across outlet types also indicates that no single channel is over-dependent on one retail format, which reduces concentration risk.</p>
+<h4>3.3 Shipping Status Overview</h4>
+<p>Order fulfilment outcomes were tracked across all 8,904 orders placed in July 2021:</p>
+<p>  Shipping Status      Count of Orders   % of Total       Avg. Fulfilment</p>
+<p>                                                          Time (Days)</p>
+<p>  Delivered            7,957             89.4%            1.67</p>
+<p>  Cancelled            947               10.6%            1.99</p>
+<p>  Grand Total          8,904             100.0%           —</p>
+<p>While the overall delivery rate of 89.4% is encouraging, the 10.6% cancellation rate represents 947 orders that failed to complete — a meaningful volume that could have significant revenue implications.</p>
+<p>Notably, cancelled orders have a longer average fulfilment time (1.99 days) than delivered orders (1.67 days), suggesting that delays in processing may be contributing to cancellations.</p>
+<h4>4. Delivery Performance Analysis</h4>
+<h4>4.1 On-Time vs. Late Delivery</h4>
+<p>Delivery timeliness was assessed across all completed orders. The results reveal a significant operational challenge:</p>
+<p>  Delivery Timing       Proportion of Orders  Implication</p>
+<p>  Early / On-Time       34.7%                 Within promised window</p>
+<p>  Late                  65.3%                 Outside promised window</p>
+<p>A late delivery rate of 65.3% is a critical metric demanding immediate attention. Nearly two-thirds of all orders are being fulfilled beyond the expected delivery window. This has direct implications for customer satisfaction, retailer trust, and potential churn. Addressing this gap should be a top operational priority.</p>
+<h4>4.2 Fulfilment Time by Region</h4>
+<p>Fulfilment time was analysed across all operational regions in both Nigeria and South Africa. The figures below represent average fulfilment time in hours:</p>
+<p>  Region            Country    Avg. Fulfilment Time  Performance</p>
+<p>                               (hrs)                 </p>
+<p>  Soweto            ZA         6 hrs                 Fastest</p>
+<p>  Katlehong         ZA         ~0 hrs                Near-Instant</p>
+<p>  Lagos             NG         10.2 hrs              Strong</p>
+<p>  Ogun              NG         11.3 hrs              Good</p>
+<p>  FCT               NG         12.4 hrs              Good</p>
+<p>  Anambra           NG         16.2 hrs              Moderate</p>
+<p>  Kano              NG         16.4 hrs              Moderate</p>
+<p>  Oyo               NG         18.2 hrs              Moderate</p>
+<p>  Abia              NG         17.1 hrs              Moderate</p>
+<p>  Gauteng           ZA         23.0 hrs              Slowest (ZA)</p>
+<p>  Rivers            NG         7.2 hrs               Good</p>
+<p>South African hubs such as Soweto and Katlehong display notably faster fulfilment times, potentially reflecting better last-mile logistics infrastructure or lower order density. In Nigeria, Lagos and Ogun lead with sub-12-hour averages, while Abia and Oyo lag behind at 17+ hours.</p>
+<p>Gauteng (ZA), despite being a major economic hub, records the longest average at 23 hours, suggesting a capacity or routing issue worth investigating.</p>
+<h4>5. Product Category Analysis</h4>
+<h4>5.1 Orders by Category Group</h4>
+<p>A total of 8,904 orders were distributed across 24 product category groups. The top 10 categories by order volume are presented below:</p>
+<p>  Rank    Category Group         Order Count         % of Total</p>
+<p>  1       Fabric Clean           2,495               28.0%</p>
+<p>  2       Spices                 1,643               18.5%</p>
+<p>  3       Processed Food         863                 9.7%</p>
+<p>  4       Toileteries            859                 9.6%</p>
+<p>  5       Milk                   778                 8.7%</p>
+<p>  6       Yoghurt                759                 8.5%</p>
+<p>  7       Household Clean        340                 3.8%</p>
+<p>  8       Infant Care            281                 3.2%</p>
+<p>  9       Coffee / Tea           270                 3.0%</p>
+<p>  10      Cereal                 166                 1.9%</p>
+<p>Fabric Clean dominates with 28.0% of all orders — nearly three times the volume of Processed Food. Together with Spices (18.5%), these two categories alone account for nearly half (46.5%) of all monthly orders.</p>
+<p>This concentration suggests that cleaning products and seasoning/flavouring agents are the primary revenue drivers and should be prioritised in inventory planning and supply chain management.</p>
+<p>Fast-Moving Consumer Goods (FMCG) categories including Milk, Yoghurt,</p>
+<p>and Toileteries collectively represent 26.8% of orders, confirming the strong daily-use consumer goods orientation of this distribution network.</p>
+<h4>5.2 Top Products by Order Volume</h4>
+<p>Among individual products, the following recorded the highest order volumes across all sales channels:</p>
+<p>  Product              Field Sales  Mobile App   Telesales    Total</p>
+<p>  Sunlight Laundry     —            722          212          934</p>
+<p>  Detergent                                                   </p>
+<p>  Knorr Soups          —            675          167          842</p>
+<p>  Dano Cool Cow        260          47           368          675</p>
+<p>  OMO                  —            364          114          478</p>
+<p>  Hollandia Evap. Milk 109          30           231          370</p>
+<p>  Robertsons Spices    —            275          65           340</p>
+<p>  So Easy              57           41           207          305</p>
+<p>  Surf Detergent       —            245          55           300</p>
+<p>  Sunlight Dishwashing —            196          56           252</p>
+<p>  Liquid                                                      </p>
+<p>  Indomie Indomitable  56           29           160          245</p>
+<p>  Pack                                                        </p>
+<p>  Grand Total          482          2,624        1,635        4,741</p>
+<p>Sunlight Laundry Detergent is the single highest-demand product with 934 orders, reinforcing the dominance of the Fabric Clean category. Knorr Soups follows with 842 orders. Notably, Field Sales channel recorded minimal activity (482 total) compared to Mobile App (2,624) and Telesales (1,635), suggesting a strong shift toward digital and voice-based ordering channels.</p>
+<h4>6. Sales Channel Analysis</h4>
+<p>Orders were processed through three distinct channels: Field Sales,</p>
+<p>Mobile App, and Telesales. The channel distribution for the top products is analysed in Section 5.2 above. Overall insights:</p>
+<p>  Sales Channel        Total Line      % Share        Notable Products</p>
+<p>                       Items                          </p>
+<p>  Mobile App           2,624           55.4%          Sunlight, Knorr, OMO</p>
+<p>  Telesales            1,635           34.5%          Dano Cool Cow,</p>
+<p>                                                      Hollandia, So Easy</p>
+<p>  Field Sales          482             10.2%          Dano Cool Cow,</p>
+<p>                                                      Hollandia</p>
+<p>  Grand Total          4,741           100.0%         —</p>
+<p>Mobile App dominates the sales channel mix with a 55.4% share,</p>
+<p>demonstrating the strength and adoption of digital commerce in this distribution network. Telesales accounts for 34.5%, remaining a significant and complementary channel — particularly for products like Dano Cool Cow and Hollandia Evaporated Milk, which may benefit from relationship-driven sales interactions. Field Sales at 10.2% appears to be a supplementary channel or may reflect a transitioning workforce toward digital tools.</p>
+<h4>7. Producer Performance Analysis</h4>
+<p>Average order quantities were analysed by producer to understand buying behaviour and demand intensity per supplier. Higher average quantities typically signal bulk purchasing patterns or high retailer dependency on specific producers.</p>
+<p>  Rank    Producer                         Avg. Order Quantity</p>
+<p>  1       Flour Mills of Nigeria           15.67</p>
+<p>  2       Guinness Nigeria Plc             12.42</p>
+<p>  3       Chi Nigeria Limited              8.40</p>
+<p>  4       DUFIL Prima Foods Plc            8.06</p>
+<p>  5       Unilever Nigeria Plc             7.10</p>
+<p>  6       Arla Foods                       6.03</p>
+<p>  7       Nasco                            5.69</p>
+<p>  8       Extreme Manufacturing Nig Ltd    3.88</p>
+<p>  9       Nourdm Global                    3.20</p>
+<p>  10      Hayat Kimya Nigeria Limited      2.27</p>
+<p>  11      PZ Cussons Nigeria Plc           2.15</p>
+<p>  12      Unilever SA                      1.66</p>
+<p>  13      Danone Nigeria                   1.33</p>
+<p>  —       Grand Total (Average)            4.15</p>
+<p>Flour Mills of Nigeria leads with an average order quantity of 15.67 units per SKU line, significantly above the grand average of 4.15 units.</p>
+<p>This likely reflects the bulk-purchase nature of staple food products (e.g., flour, pasta). Guinness Nigeria Plc (12.42) and Chi Nigeria Limited (8.40) also record high average quantities, consistent with beverage products typically ordered in cartons or multi-unit packs.</p>
+<p>At the lower end, Danone Nigeria (1.33) and Unilever SA (1.66) record close-to-single-unit averages, suggesting their product formats or price points result in smaller per-order purchases. This information can guide minimum order quantity negotiations and pricing strategies with each producer.</p>
+<h4>8. Key Findings &amp; Strategic Recommendations</h4>
+<h4>8.1 Summary of Key Findings</h4>
+<ul>
+<li>The July 2021 period recorded 8,904 total orders with an 89.4%</li>
+</ul>
+<p>    successful delivery rate.</p>
+<ul>
+<li>A 65.3% late delivery rate is the most critical operational concern</li>
+</ul>
+<p>    identified in this dataset.</p>
+<ul>
+<li>Cancelled orders (947) average a longer processing time than</li>
+</ul>
+<p>    delivered orders, suggesting systemic processing bottlenecks.</p>
+<ul>
+<li>Fabric Clean and Spices together represent 46.5% of all orders,</li>
+</ul>
+<p>    making them the backbone of the product portfolio.</p>
+<ul>
+<li>Mobile App is the dominant sales channel at 55.4% — digital adoption</li>
+</ul>
+<p>    is strong and growing.</p>
+<ul>
+<li>Regional fulfilment performance varies significantly, with Gauteng</li>
+</ul>
+<p>    (ZA) and Abia/Oyo (NG) experiencing the longest average fulfilment</p>
+<p>    times.</p>
+<ul>
+<li>Flour Mills of Nigeria generates the highest average order</li>
+</ul>
+<p>    quantities, indicative of bulk staple purchasing behaviour.</p>
+<h4>8.2 Strategic Recommendations</h4>
+<p>Based on the analysis, the following actions are recommended:</p>
+<h4>1. Address Late Delivery Rate (Priority: Critical)</h4>
+<p>With 65.3% of orders delivered late, a comprehensive review of the logistics and fulfilment pipeline is urgently required. Root cause analysis should be conducted at the regional level, with specific focus on Gauteng, Abia, and Oyo. Consider SLA renegotiations with third-party logistics providers and implementation of real-time delivery tracking.</p>
+<h4>2. Reduce Cancellation Rate (Priority: High)</h4>
+<p>The 10.6% cancellation rate (947 orders) represents significant revenue leakage. A deeper investigation into the reasons for cancellation — whether demand-side (customer withdrawal), supply-side (stock-out), or system-side (processing errors) — is essential. Automated follow-up workflows for at-risk orders could reduce this figure materially.</p>
+<h4>3. Strengthen Top-Category Supply Chains (Priority: High)</h4>
+<p>Given the outsized contribution of Fabric Clean (28%) and Spices (18.5%), ensuring robust stock availability and reliable supplier relationships for these categories is paramount. Buffer stock strategies and preferred supplier agreements should be explored for Sunlight Laundry Detergent and Knorr Soups.</p>
+<h4>4. Invest in Digital Channel Infrastructure (Priority: Medium)</h4>
+<p>Mobile App accounts for over 55% of sales activity. Continued investment in the mobile platform — including improved UI/UX, order tracking, and personalised recommendations — will further consolidate digital channel dominance and reduce reliance on Telesales and Field Sales.</p>
+<h4>5. Regional Performance Benchmarking (Priority: Medium)</h4>
+<p>High-performing regions such as Lagos, Ogun, and South African hubs (Soweto, Katlehong) should be studied as operational benchmarks. Best practices from these regions should be documented and applied to lagging regions through targeted capability-building initiatives.</p>
+<h4>6. Producer Engagement Strategy (Priority: Medium)</h4>
+<p>The wide variance in average order quantities (1.33 to 15.67) across producers suggests the need for tailored engagement strategies.</p>
+<p>High-volume producers like Flour Mills of Nigeria and Guinness warrant dedicated account management, while lower-volume producers like Danone and Unilever SA may benefit from promotional incentives to increase order sizes.</p>
+<h4>9. Conclusion</h4>
+<p>The July 2021 sales data reveals a distribution network with strong market penetration across outlet types and geographies, an encouraging shift toward digital ordering channels, and a clear category hierarchy led by Fabric Clean and Spices. However, the late delivery rate of 65.3% and cancellation rate of 10.6% present material operational and commercial risks that must be addressed as immediate priorities.</p>
+<p>Actionable improvements in logistics efficiency, cancellation management, and regional capability deployment will be crucial to converting order volume into reliable revenue. The data-driven recommendations in this report provide a clear roadmap for enhancing service quality and sustaining growth across the network.</p>
+<p>This report was prepared based on the Ayo Sales dataset covering July</p>
+<h4>2021 orders. All figures are expressed in USD. Exchange rates applied:</h4>
+<p>NGN/USD = 402.00; ZAR/USD = 14.72.</p>
+<p>Analysis prepared: April 2026 | Classification: Confidential — Internal</p>
+<p>Use Only</p></div>
+</div></div>
+<!-- MODAL: CAFE -->
+<div class="mo" id="mo-cafe" onclick="cOut(event,'cafe')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#9749;</div><div>
+      <div class="mt">Ayomikun Café – 2023 Annual Performance Report</div>
+      <div class="mm">Full Year 2023  ·  Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('cafe')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">#1 Salad</div><div class="kk">Top Revenue</div></div><div class="ki"><div class="kv">48%</div><div class="kk">Cash Payments</div></div><div class="ki"><div class="kv">24%</div><div class="kk">Digital Wallet</div></div><div class="ki"><div class="kv">9</div><div class="kk">Product Lines</div></div><div class="ki"><div class="kv">243</div><div class="kk">Peak Units Aug</div></div></div>
+  <div class="mf"><a href="Cafe_Shop.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a></div>
+  <div class="mb"><h4>2023 Report for Ayomikun Cafe</h4>
+<p>📈 Executive Summary</p>
+<p>The business shows strong performance, with Salad being the dominant revenue generator. The primary payment method is Cash, accounting for nearly half of all transactions. Sales volume is relatively stable across most product lines, though there&#x27;s notable variation in monthly quantities for specific items. In-store orders generate slightly more overall revenue than takeaway purchases.</p>
+<p>💰 Total Revenue Analysis</p>
+<p>Based on the TOTAL REVENUE FOR THE YEAR chart:</p>
+<ul>
+<li>Top Revenue Generator: Salad is the clear leader, generating the</li>
+</ul>
+<p>    highest annual revenue (estimated to be well over $10,000, likely</p>
+<p>    around $12,000).</p>
+<ul>
+<li>Other Key Contributors: Sandwich is the second-highest revenue item,</li>
+</ul>
+<p>    followed by Smoothie.</p>
+<ul>
+<li>Lowest Revenue Item: Ice tea generated the least revenue among all</li>
+</ul>
+<p>    items.</p>
+<p>  Item       Revenue Rank   Key Insight</p>
+<p>  Salad      1              The most valuable product by revenue.</p>
+<p>  Sandwich   2              A strong, consistent contributor to the bottom</p>
+<p>                            line.</p>
+<p>  Ice tea    9              Lowest performer in terms of financial value.</p>
+<p>💳 Payment Method Distribution</p>
+<p>The PAYMENT METHOD pie chart reveals the preferred ways customers pay,</p>
+<p>indicating operational requirements for managing cash flow and transaction fees.</p>
+<p>  Payment      Percentage   Operational Implication</p>
+<p>  Method       Share        </p>
+<p>  Cash         48%          Dominant payment method; requires robust cash</p>
+<p>                            handling and security procedures.</p>
+<p>  Digital      24%          Strong adoption of digital/mobile payments.</p>
+<p>  Wallet                    </p>
+<p>  Credit Card  22%          Third most common; indicates significant</p>
+<p>                            reliance on card processing infrastructure.</p>
+<p>  Debit Card   3%           Low usage compared to Credit Card.</p>
+<p>  EBT          3%           Minimal usage.</p>
+<p>Key Takeaway: The business is heavily cash-reliant. Exploring incentives for digital or credit card payments could potentially reduce cash handling costs and increase security.</p>
+<p>🏪 Sales Location Analysis</p>
+<p>The Total Amount Paid bar chart, segmented by Location (Takeaway vs.</p>
+<p>In-store), provides insight into customer behaviour:</p>
+<ul>
+<li>In-store Dominance: In-store orders slightly edge out Takeaway</li>
+</ul>
+<p>    purchases in terms of total amount paid for most items.</p>
+<ul>
+<li>Takeaway Preference: Cake, Coffee, and Cookies are the only items</li>
+</ul>
+<p>    where Takeaway revenue appears to be slightly higher than In-store.</p>
+<p>Strategic Implication: Optimizing the takeaway process (e.g., faster service, dedicated pickup area) is crucial, as this channel has the potential to become the primary driver of total revenue.</p>
+<p>📊 Total Quantity of Goods Sold Per Month (Volume Analysis)</p>
+<p>This chart displays the monthly sales volume for all product categories,</p>
+<p>revealing key trends in customer demand and seasonality.</p>
+<h4>1. Top Volume Sellers</h4>
+<p>The items that consistently move the highest quantity of units each month are:</p>
+<ul>
+<li>Tea: Shows very high and consistent sales volume across the entire</li>
+</ul>
+<p>    year.</p>
+<ul>
+<li>Sandwich: Also maintains a high baseline volume, positioning it as a</li>
+</ul>
+<p>    core, high-demand item.</p>
+<ul>
+<li>Salad: Despite having a lower volume in some months, it features</li>
+</ul>
+<p>    significant peaks that make it a top annual volume seller.</p>
+<h4>2. Stability of Core Products</h4>
+<p>Several items demonstrate remarkably stable sales volumes throughout the</p>
+<h4>12 months, indicating they are staple products with year-round demand:</h4>
+<p>  Item     Insight</p>
+<p>  Cake     Consistent sales, generally in the 140–205 unit range monthly.</p>
+<p>  Coffee   Very stable, high volume sales (often exceeding 200 units).</p>
+<p>  Cookie   Maintains a solid, stable monthly demand with fewer dramatic</p>
+<p>           spikes or dips.</p>
+<h4>3. Seasonal Trends and Fluctuations</h4>
+<p>The chart clearly highlights seasonal effects on specific product lines:</p>
+<ul>
+<li>Salad (Summer/Fall Peak): This product sees the most dramatic</li>
+</ul>
+<p>    seasonal surge, peaking in late summer and fall:</p>
+<ul>
+<li>August: 243 units (Highest monthly volume for any single item).</li>
+</ul>
+<ul>
+<li>October: 219 units.</li>
+</ul>
+<ul>
+<li>This suggests strong demand for healthier, non-heated food</li>
+</ul>
+<p>        options during these periods.</p>
+<ul>
+<li>Ice Tea (Winter Dip): As expected for a cold beverage, sales drop</li>
+</ul>
+<p>    significantly in the colder months:</p>
+<ul>
+<li>December: Only 37 units.</li>
+</ul>
+<ul>
+<li>November: 43 units.</li>
+</ul>
+<ul>
+<li>Sales are highest in the spring months (e.g., April: 99).</li>
+</ul>
+<ul>
+<li>Juice: Sales are strong at the beginning of the year (Jan: 193,</li>
+</ul>
+<p>    Feb: 174) but show a notable dip mid-year (e.g., June: 116),</p>
+<p>    indicating some moderate seasonality.</p>
+<h4>4. Strategic Volume Takeaway</h4>
+<p>The data shows a clear distinction between stable core products (Coffee,</p>
+<p>Cake), and high-volume, highly seasonal items (Salad, Ice Tea).</p>
+<p>Strategic planning should focus on maximising the profitability of the high-volume (and high-revenue) Salad during its peak season while exploring ways to compensate for the significant volume drop in Ice Tea during winter.</p>
+<p>🎯 Conclusion and Recommendations</p>
+<h4>1.  Maximize Salad &amp; Sandwich Profitability: As the definitive revenue</h4>
+<p>    leaders, focus marketing and promotions heavily on Salad and</p>
+<p>    Sandwich. Implement upselling strategies (e.g., premium ingredients,</p>
+<p>    high-margin combos) to further increase their already strong</p>
+<p>    financial contribution.</p>
+<h4>2.  Optimize Payment Strategy: Given the high reliance on Cash (48%),</h4>
+<p>    consider implementing digital incentives (e.g., loyalty points for</p>
+<p>    credit/digital wallet payments) to reduce the operational burden and</p>
+<p>    risk associated with high cash volumes.</p>
+<h4>3.  Enhance Takeaway Operations: Since Takeaway is the slight winner</h4>
+<p>    over In-store revenue, ensure that the ordering, preparation, and</p>
+<p>    pickup experience is seamless and fast to maintain customer</p>
+<p>    satisfaction and volume growth.</p></div>
+</div></div>
+<!-- MODAL: GLOBAL -->
+<div class="mo" id="mo-global" onclick="cOut(event,'global')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#127758;</div><div>
+      <div class="mt">Global Superstore – Strategic Analysis 2011–2014</div>
+      <div class="mm">4 Fiscal Years  ·  147 Countries  ·  Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('global')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">$12.64M</div><div class="kk">Total Revenue</div></div><div class="ki"><div class="kv">$1.47M</div><div class="kk">Net Profit</div></div><div class="ki"><div class="kv">11.61%</div><div class="kk">Profit Margin</div></div><div class="ki"><div class="kv">147</div><div class="kk">Countries</div></div><div class="ki"><div class="kv">25,035</div><div class="kk">Orders</div></div><div class="ki"><div class="kv">+90.3%</div><div class="kk">4-Year Growth</div></div></div>
+  <div class="mf"><a href="GlobalSuperstore.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a></div>
+  <div class="mb"><p>GLOBAL SUPERSTORE</p>
+<p>STRATEGIC ANALYSIS REPORT</p>
+<p>Fiscal Years 2011–2014 | Global Operations</p>
+<h4>1. Executive Summary</h4>
+<p>This report presents a detailed strategic analysis of the Global Superstore dataset, spanning four complete fiscal years from 2011 to</p>
+<h4>2014. The dataset contains 51,290 transaction records across 25,035</h4>
+<p>unique orders, serving 1,590 customers in 147 countries through seven distinct global markets.</p>
+<p>The business demonstrated consistent revenue growth throughout the analysis period, with total cumulative revenue of $12.64 million and net profit of $1.47 million, representing an overall profit margin of 11.61%. Year-over-year revenue growth accelerated significantly,</p>
+<p>reaching 27.2% in 2013 before sustaining a strong 26.3% growth rate into 2014.</p>
+<h4>1.1 Key Performance Indicators</h4>
+<p>  Total Revenue  Total Profit   Total Orders   Customers      Returns</p>
+<p>  $12.64M        $1.47M         25,035         1,590          1,173 (4.69%)</p>
+<p>                 (11.61%)                                     </p>
+<p>Despite healthy top-line growth, the analysis reveals significant profitability challenges in specific markets, geographies, and product categories. Most critically, discount practices exceeding 40% are destroying value in multiple markets, and a subset of countries — Turkey, Nigeria, Netherlands, Honduras, and Pakistan — are consistently loss-making.</p>
+<h4>2. Revenue &amp; Profit Growth Analysis</h4>
+<h4>2.1 Year-Over-Year Performance</h4>
+<p>Revenue grew from $2.26 million in 2011 to $4.30 million by 2014,</p>
+<p>representing an 90.3% cumulative increase over four years. This strong trajectory reflects successful market penetration and expanding geographic reach.</p>
+<p>  Year      Revenue      Profit       Margin    Qty          EoY Growth</p>
+<p>  2011      $2,259,451   $248,941     11.0%     31,443       —</p>
+<p>  2012      $2,677,439   $307,415     11.5%     38,111       +18.5%</p>
+<p>  2013      $3,405,746   $406,935     11.9%     48,136       +27.2%</p>
+<p>  2014      $4,299,866   $504,166     11.7%     60,622       +26.3%</p>
+<p>The acceleration in growth from 2012 to 2013 (+27.2%) reflects expanded market operations, while the 2014 growth of 26.3% confirms this momentum was sustained. Profit grew at a similar pace — $248,941 in 2011 to $504,166 in 2014 — though the margin rate modestly declined from 11.9% (2013 peak) to 11.7% in 2014, which warrants monitoring.</p>
+<h4>2.2 Monthly Sales Pattern</h4>
+<p>Monthly analysis of 2013–2014 data reveals clear seasonal patterns.</p>
+<p>Revenue consistently peaks in mid-year (May–June) and again in Q4 (August–November), with visible troughs in January–February each year.</p>
+<p>This bi-modal pattern is consistent across both years, suggesting structural demand rhythms rather than one-off events. The November 2014 peak of $555,279 represents the single highest monthly revenue in the entire dataset.</p>
+<h4>3. Market Performance Analysis</h4>
+<h4>3.1 Global Market Overview</h4>
+<p>The Global Superstore operates across seven distinct markets. APAC is the largest revenue market at $3.59 million, while Canada delivers the highest profit margin at 26.6% despite being the smallest market by volume. EMEA is the most concerning market, generating only a 5.5% margin — less than half the company average — and representing a structural risk to overall profitability.</p>
+<p>  Market     Sales        Profit       Margin    Returns   Status</p>
+<p>  APAC       $3,585,744   $436,000     12.2%     296       Strong</p>
+<p>  EU         $2,938,089   $372,830     12.7%     284       Strong</p>
+<p>  US         $2,297,201   $286,397     12.5%     296       Strong</p>
+<p>  LATAM      $2,164,605   $221,643     10.2%     297       Stable</p>
+<p>  EMEA       $806,161     $43,898      5.5%      —         At Risk</p>
+<p>  Africa     $783,773     $88,872      11.3%     —         Stable</p>
+<p>  Canada     $66,928      $17,817      26.6%     —         High Margin</p>
+<p>The LATAM market warrants strategic attention. While generating $2.16 million in revenue, its 10.2% margin is the second lowest among reporting markets. Combined with the highest return count (297 orders),</p>
+<p>LATAM presents both a volume opportunity and a risk management challenge.</p>
+<h4>3.2 Top-Performing Countries</h4>
+<p>The top 10 countries by revenue account for a disproportionate share of total business, a classic Pareto distribution. The United States alone contributes $2.30 million — 18.2% of total revenue — while the bottom 100+ countries collectively contribute a marginal share.</p>
+<p>  #     Country              Sales          Profit         Profit Margin</p>
+<p>  1     United States        $2,297,201     $286,397       12.5%</p>
+<p>  2     Australia            $925,236       $103,907       11.2%</p>
+<p>  3     France               $858,931       $109,029       12.7%</p>
+<p>  4     China                $700,562       $150,683       21.5%</p>
+<p>  5     Germany              $628,840       $107,323       17.1%</p>
+<p>  6     Mexico               $622,591       $102,818       16.5%</p>
+<p>  7     India                $589,650       $129,072       21.9%</p>
+<p>  8     United Kingdom       $528,576       $111,900       21.2%</p>
+<p>  9     Indonesia            $404,888       $17,852        4.4%</p>
+<p>  10    Brazil               $361,106       N/A            N/A</p>
+<p>Notably, China and India — ranked 4th and 7th by sales — deliver substantially higher profit margins (21.5% and 21.9% respectively) than the overall company average, making them attractive markets for strategic investment. The UK similarly performs well at 21.2% margin. In contrast, Indonesia ranks 9th by sales but has a 4.4% margin — well below company average — driven largely by the Tables sub-category losses in Southeast Asia.</p>
+<h4>3.3 Loss-Making Countries — Problem Diagnosis</h4>
+<p>Six countries generate net losses and require immediate strategic intervention. These markets collectively erode an estimated $280,000+ in profit value.</p>
+<p>  Country       Region     Net Profit   Root Cause          Recommended</p>
+<p>                                                            Action</p>
+<p>  Turkey        EMEA       -$98,447     High discounts      Urgent Review</p>
+<p>                                        (&gt;40%)              </p>
+<p>  Nigeria       Africa     -$80,751     Discount abuse +    Urgent Review</p>
+<p>                                        shipping            </p>
+<p>  Netherlands   EU         -$41,070     Tables sub-category Product</p>
+<p>                                        losses              Rationalisation</p>
+<p>  Honduras      LATAM      -$29,482     Excessive           Discount Cap</p>
+<p>                                        discounting         </p>
+<p>  Pakistan      APAC       -$22,447     Shipping cost       Cost Review</p>
+<p>                                        overrun             </p>
+<p>  Indonesia     SE Asia    -$10,680     Tables loss-making  Product Exit</p>
+<p>  (Tables)                              product             </p>
+<p>Turkey is the single largest loss-making country with -$98,447,</p>
+<p>suggesting systematic over-discounting rather than structural market problems. Nigeria&#x27;s -$80,751 loss combined with the pivot table data showing $193.20 in discounts and $1,518.48 in shipping costs confirms that profitability is being destroyed by both discount abuse and disproportionate logistics costs relative to order value.</p>
+<h4>4. Product Category &amp; Sub-Category Analysis</h4>
+<h4>4.1 Category Performance</h4>
+<p>Three product categories drive the entire Global Superstore revenue.</p>
+<p>Technology leads in both sales ($4.74 million) and profit margin (13.99%), confirming its strategic importance as a high-value,</p>
+<p>high-margin segment. Office Supplies, while generating the lowest revenue ($3.79 million), achieves a 13.69% margin — close to Technology — due to the high volume of low-cost, high-margin consumables.</p>
+<p>  Category           Sales        Profit       Margin     Qty Sold</p>
+<p>  Technology         $4,744,558   $663,779     13.99%     35,176</p>
+<p>  Furniture          $4,110,874   $285,205     6.94%      34,954</p>
+<p>  Office Supplies    $3,787,070   $518,474     13.69%     108,182</p>
+<p>Furniture is the most problematic category. Despite being the second-largest revenue category at $4.11 million, it earns only a 6.94% profit margin — barely half the company average of 11.61%. This significant margin underperformance is driven primarily by the Tables sub-category, which is the only sub-category generating a net loss across the entire product portfolio.</p>
+<h4>4.2 Sub-Category Profitability Ranking</h4>
+<p>At the sub-category level, a stark divide exists between high-performers and loss-makers. The top 8 sub-categories deliver $1.23 million in combined profit, while the Tables sub-category alone destroys $64,083 in value.</p>
+<p>  Sub-Category          Profit       Note         Category</p>
+<p>  Copiers               $258,568                  Technology</p>
+<p>  Phones                $216,717                  Technology</p>
+<p>  Bookcases             $161,924                  Furniture</p>
+<p>  Appliances            $141,681                  Office Supplies</p>
+<p>  Chairs                $140,396                  Furniture</p>
+<p>  Accessories           $129,626                  Technology</p>
+<p>  Storage               $108,461                  Office Supplies</p>
+<p>  Binders               $72,450                   Office Supplies</p>
+<p>  Tables                -$64,083     LOSS         Furniture</p>
+<p>  Fasteners             $11,525      Low          Office Supplies</p>
+<p>  Labels                $15,011      Low          Office Supplies</p>
+<p>  Supplies              $22,583      Low          Office Supplies</p>
+<p>  Envelopes             $29,601      Low          Office Supplies</p>
+<p>Copiers ($258,568) and Phones ($216,717) together account for $475,285 — nearly one-third of all company profit — from the Technology category.</p>
+<p>These two sub-categories should be treated as the company&#x27;s core profit engines and prioritised for inventory, marketing, and customer retention investment. Bookcases ($161,924) is a surprisingly strong performer within Furniture, suggesting the category problem is isolated to Tables rather than Furniture broadly.</p>
+<h4>5. Customer Segment Analysis</h4>
+<h4>5.1 Segment Revenue Distribution</h4>
+<p>The Consumer segment dominates with $6.51 million in revenue (51.5% of total), followed by Corporate at $3.82 million (30.3%) and Home Office at $2.31 million (18.3%). Margin performance is remarkably consistent across all three segments at approximately 11.5–12.0%, suggesting pricing and discounting practices are segment-agnostic.</p>
+<p>  Segment            Sales          Profit       Margin           Share</p>
+<p>  Consumer           $6,507,949     $749,240     11.51%           51.5%</p>
+<p>  Corporate          $3,824,698     $441,208     11.54%           30.3%</p>
+<p>  Home Office        $2,309,855     $277,009     11.99%           18.3%</p>
+<p>The Corporate segment presents a growth opportunity. With a strong 11.54% margin and the highest average order values, targeted account management and enterprise sales strategies could accelerate corporate revenue without sacrificing margin quality.</p>
+<h4>6. Discount Strategy Analysis</h4>
+<h4>6.1 Discount Impact on Profitability</h4>
+<p>One of the most critical findings in this dataset is the severe and non-linear relationship between discount depth and profitability.</p>
+<p>Discounts above 20% begin destroying value, and discounts above 40% produce catastrophic losses on a per-order basis.</p>
+<p>  Discount Band      Avg            Status         Recommendation</p>
+<p>                     Profit/Order                  </p>
+<p>  No Discount (0%)   $61.04         Profitable     Encourage</p>
+<p>  Low (1–20%)        $46.69         Profitable     Monitor</p>
+<p>  Medium (21–40%)    -$42.88        Loss-making    Cap at 20%</p>
+<p>  High (41–60%)      -$80.60        Severe Loss    Eliminate</p>
+<p>  Extreme (61%+)     -$111.55       Critical Loss  Immediate Ban</p>
+<p>The data is unambiguous: every percentage point of discount above the 20% threshold accelerates loss accumulation. An order with a 50% discount generates an average loss of -$80.60, compared to a profit of $61.04 on non-discounted orders. This represents a value swing of $141.64 per order — a devastating impact at scale. Given that Turkey,</p>
+<p>Nigeria, and several other loss-making countries show evidence of sustained deep discounting, this single policy lever could recover millions in lost profit if corrected.</p>
+<h4>7. Shipping &amp; Logistics Analysis</h4>
+<h4>7.1 Shipping Mode Distribution</h4>
+<p>Standard Class shipping dominates at 59.9% of revenue ($7.58 million),</p>
+<p>reflecting customer preference for cost-effective delivery. Same Day and First Class combined account for only 19.8% of orders, suggesting the customer base is not strongly premium-shipping oriented.</p>
+<p>  Ship Mode          Revenue        Profit         Revenue %    Margin</p>
+<p>  Standard Class     $7,578,652     $890,596       59.9%        11.7%</p>
+<p>  Second Class       $2,565,672     $292,584       20.3%        11.4%</p>
+<p>  First Class        $1,830,976     $208,105       14.5%        11.4%</p>
+<p>  Same Day           $667,202       $76,173        5.3%         11.4%</p>
+<p>Shipping cost is a meaningful profit detractor in certain markets — APAC alone incurs $387,165 in shipping costs, the highest of all markets.</p>
+<p>This is a key driver behind the low margins in Southeast Asia and contributes to the losses seen in Indonesia and Pakistan. A freight negotiation or logistics consolidation initiative in APAC could have meaningful margin impact.</p>
+<h4>8. Problem Statement Deep-Dive</h4>
+<h4>8.1 Top Profit Countries</h4>
+<p>The analysis identifies the three highest-profit countries — United States ($286,397), China ($150,683), and India ($129,072) — with a combined profit of $566,152. This trio represents 38.6% of total company profit despite being only 3 of 147 countries. Their performance underscores the critical importance of protecting and growing these accounts.</p>
+<h4>8.2 Africa Region — Country-Level Profit Analysis (2014)</h4>
+<p>The Problem Statement for Africa reveals a nuanced picture. South Africa leads with $9,363 profit, followed by Morocco at $8,444. However,</p>
+<p>Nigeria stands out as a severe outlier with a -$23,285 loss — the only African country generating a significant net loss. The Nigeria issue is compounded by high discount usage ($193.20) and elevated shipping costs ($1,518.48) relative to order values, suggesting the business model for this market is fundamentally unviable at current terms.</p>
+<p>Zimbabwe (-$2,219) and Uganda (-$1,093) also generate losses but at a scale that suggests resolvable operational issues rather than structural market failure.</p>
+<h4>8.3 Southeast Asia — Tables Sub-Category Crisis</h4>
+<p>The Southeast Asia problem statement reveals that the Tables sub-category generates losses across every major country in the region.</p>
+<p>This is a product-level rather than market-level problem: the Tables pricing, discount structure, or cost-to-serve economics are broken specifically in this geography.</p>
+<p>  Country               Tables Profit      Assessment</p>
+<p>  Indonesia             -$10,680           Largest loss — immediate exit</p>
+<p>                                           recommended</p>
+<p>  Thailand              -$3,188            Significant loss — pricing</p>
+<p>                                           review required</p>
+<p>  Philippines           -$3,151            Material loss — discount</p>
+<p>                                           controls needed</p>
+<p>  Myanmar (Burma)       -$1,603            Moderate loss — discount</p>
+<p>                                           policy review</p>
+<p>  Vietnam               -$1,523            Moderate loss — pricing</p>
+<p>                                           adjustment needed</p>
+<p>  Singapore             $164               Marginally profitable —</p>
+<p>                                           monitor closely</p>
+<p>  Cambodia              $1,362             Profitable — benchmark against</p>
+<p>                                           others</p>
+<p>Total Tables loss in Southeast Asia: -$18,618. The Cambodia and Singapore markets demonstrate that Tables can be profitable, suggesting the issue is not inherent to the product but rather to pricing and discount practices applied inconsistently across the region.</p>
+<h4>8.4 United States — Loss-Making Cities</h4>
+<p>Despite the United States being the most profitable country overall ($286,397), five cities generate meaningful losses, collectively totaling -$45,184. Philadelphia is the most loss-intensive city at -$13,838 from 1,981 units, suggesting high-volume deep discounting.</p>
+<p>Houston follows at -$10,154 from 1,466 units.</p>
+<p>  City           Country       Profit       Qty      Observations</p>
+<p>  Philadelphia   United States -$13,838     1,981    High volume, low</p>
+<p>                                                     margin</p>
+<p>  Houston        United States -$10,154     1,466    Discount-driven loss</p>
+<p>  Lancaster      United States -$7,239      171      Small market,</p>
+<p>                                                     loss-making</p>
+<p>  San Antonio    United States -$7,299      247      Pricing issues</p>
+<p>  Chicago        United States -$6,655      1,132    Competitive pressure</p>
+<p>Philadelphia and Houston together account for -$24,000 in losses from nearly 3,500 units — a volume problem requiring immediate discount policy intervention. Lancaster, while generating a -$7,239 loss, does so from only 171 units, suggesting a pricing or product mix issue rather than discount abuse.</p>
+<h4>8.5 Top Customers &amp; Products</h4>
+<p>This sub-analysis identifies five high-value customers: Tamara Chand ($9,509), Raymond Buch ($8,588), Hunter Lopez ($7,343), Sanjit Chand ($6,933), and Bill Eplett ($4,408) — collectively generating $36,781 in profit. The Canon imageCLASS 2200 Advanced Copier appears as the top product for multiple customers, confirming the Copiers sub-category leadership in this market. These customers represent concentrated profit risk and should be enrolled in a proactive account management program.</p>
+<h4>9. Returns Analysis</h4>
+<h4>9.1 Return Rate by Market</h4>
+<p>Total returns across the dataset stand at 1,173 orders, representing a 4.69% return rate. Notably, return data is only available for four markets: LATAM (297), US (296), APAC (296), and EU (284). The near-equal distribution across these four markets is striking and suggests the return phenomenon is systemic rather than market-specific.</p>
+<p>The absence of return data for EMEA, Africa, and Canada could indicate either operational reporting gaps or genuinely lower return volumes in those markets. This data gap should be resolved before definitive return rate benchmarks are established.</p>
+<h4>10. Strategic Recommendations</h4>
+<h4>10.1 Immediate Actions (0–90 days)</h4>
+<h4>1.  Implement a hard discount cap of 20% across all markets. Discounts</h4>
+<p>    above this threshold are loss-making. Establish a senior approval</p>
+<p>    process for any exception. Estimated profit recovery: $400K+</p>
+<p>    annually based on current discount patterns.</p>
+<h4>2.  Initiate an emergency review of Turkey and Nigeria operations. Both</h4>
+<p>    countries are generating losses exceeding $80,000. Evaluate whether</p>
+<p>    to exit, restructure pricing, or impose strict discount controls.</p>
+<h4>3.  Suspend the Tables sub-category in Indonesia, Thailand, and the</h4>
+<p>    Philippines pending a full pricing and cost-to-serve review. Tables</p>
+<p>    generate losses in 5 of 7 Southeast Asian markets.</p>
+<h4>4.  Address the five loss-making US cities. Implement per-city discount</h4>
+<p>    policies for Philadelphia and Houston, where volume-driven deep</p>
+<p>    discounting is destroying margin.</p>
+<h4>10.2 Medium-Term Strategy (90 days – 12 months)</h4>
+<h4>5.  Double down on China, India, and the United Kingdom. All three</h4>
+<p>    countries deliver 21%+ profit margins — well above the company</p>
+<p>    average. These are the highest-margin opportunities among large</p>
+<p>    markets.</p>
+<h4>6.  Build a strategic account program for Australia&#x27;s top-5 customers.</h4>
+<p>    Five customers generate $36,781 in profit. Concentrated VIP</p>
+<p>    retention is critical given the profit concentration risk.</p>
+<h4>7.  Invest in APAC logistics efficiency. APAC bears $387,165 in shipping</h4>
+<p>    costs — the highest of all markets. A freight consolidation or</p>
+<p>    regional warehouse initiative could add 1–2 percentage points of</p>
+<p>    margin.</p>
+<h4>8.  Expand the Copiers and Phones sub-categories. These two</h4>
+<p>    sub-categories alone generate $475,285 in profit. Dedicated</p>
+<p>    marketing investment and inventory prioritisation could amplify</p>
+<p>    returns significantly.</p>
+<h4>9.  Develop a Furniture margin improvement plan. The 6.94% Furniture</h4>
+<p>    margin versus the company&#x27;s 11.61% average represents a structural</p>
+<p>    drag. Exiting Tables in loss-making geographies and reviewing</p>
+<p>    Furniture pricing broadly could close this gap.</p>
+<h4>10.3 Long-Term Initiatives (12+ months)</h4>
+<h4>10. Build a unified discount governance framework with tiered authority</h4>
+<p>    levels, real-time margin visibility, and automatic deal rejection</p>
+<p>    for projected loss-making orders.</p>
+<h4>11. Develop Canada as a high-margin growth market. With a 26.6% profit</h4>
+<p>    margin — more than double the company average — Canada&#x27;s potential</p>
+<p>    is significantly under-exploited at $67,000 in revenue. A dedicated</p>
+<p>    Canada go-to-market strategy could unlock substantial value.</p>
+<h4>12. Implement a customer lifetime value model for the Consumer segment</h4>
+<p>    (51.5% of revenue). Identifying and retaining high-value consumers</p>
+<p>    could shift the revenue mix favourably and reduce CAC over time.</p>
+<h4>13. Resolve the regional return rate data gap for EMEA, Africa, and</h4>
+<p>    Canada. Returns are a leading indicator of product fit, pricing</p>
+<p>    issues, and customer satisfaction — the absence of this data is a</p>
+<p>    strategic blind spot.</p>
+<h4>11. Conclusion</h4>
+<p>The Global Superstore has demonstrated impressive revenue growth over the 2011–2014 period, with a CAGR of approximately 23.8% and consistent profit expansion. The fundamentals — strong technology category performance, resilient market diversification, and a growing customer base — are solid.</p>
+<p>However, a clear profit quality problem exists beneath the top-line story. Discount policy failures are destroying value in specific markets at scale. The Tables sub-category is structurally unprofitable in Southeast Asia. Five cities in the United States, five countries across multiple regions, and the EMEA market broadly are all eroding the profitability of an otherwise healthy business.</p>
+<p>The good news is that these problems are diagnosable and solvable.</p>
+<p>Implementing a strict discount cap, exiting or repricing specific sub-categories in loss-making markets, and doubling investment into the company&#x27;s highest-margin markets — China, India, the UK, and Canada — represents a clear, data-evidenced path to materially improved profitability without sacrificing growth.</p></div>
+</div></div>
+<!-- MODAL: KMS -->
+<div class="mo" id="mo-kms" onclick="cOut(event,'kms')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#127978;</div><div>
+      <div class="mt">KMS Superstore – Business Performance 2009–2012</div>
+      <div class="mm">4 Fiscal Years  ·  Canada  ·  Power BI + Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('kms')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">$14.92M</div><div class="kk">Total Revenue</div></div><div class="ki"><div class="kv">$1.52M</div><div class="kk">Net Profit</div></div><div class="ki"><div class="kv">10.2%</div><div class="kk">Profit Margin</div></div><div class="ki"><div class="kv">795</div><div class="kk">Customers</div></div><div class="ki"><div class="kv">5,496</div><div class="kk">Orders</div></div><div class="ki"><div class="kv">10.4%</div><div class="kk">Return Rate</div></div></div>
+  <div class="mf"><a href="KMS_Superstore_Data.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a><a href="kms.pbix" download class="mfb mfb-pb"><span>&#128200;</span> Power BI Dashboard <span class="mfbl">Download (.pbix)</span></a></div>
+  <div class="mb"><p>KMS SUPERSTORE</p>
+<p>Business Performance &amp; Data Analysis Report</p>
+<p>Fiscal Years 2009 – 2012</p>
+<h4>1. Executive Summary</h4>
+<p>This report presents a comprehensive analysis of KMS Superstore&#x27;s business performance across fiscal years 2009 to 2012. Drawing on 8,399 transaction records spanning 795 customers, multiple Canadian regions,</p>
+<p>and three core product categories, the analysis evaluates revenue trends, profitability, customer segmentation, regional performance,</p>
+<p>shipping efficiency, and product-level insights.</p>
+<p>The findings reveal a business generating over $14.9 million in cumulative revenue with a net profit of $1.52 million. While overall performance demonstrates stability, targeted opportunities exist in addressing unprofitable product lines, optimising shipping cost allocation, and reducing return rates.</p>
+<table class="rt">
+<tr><th>$14.92M</th><th>$1.52M</th><th>10.2%</th><th>795</th></tr>
+<tr><td>Total Revenue</td><td>Net Profit</td><td>Overall Profit</td><td>Total Customers</td></tr>
+<tr><td>(2009–2012)</td><td>Margin</td></tr>
+</table>
+<table class="rt">
+<tr><th>5,496</th><th>$2,714</th><th>10.4%</th><th>5.0%</th></tr>
+<tr><td>Total Orders</td><td>Avg. Order</td><td>Return Rate</td><td>Avg. Discount</td></tr>
+<tr><td>Value</td></tr>
+</table>
+<h4>1.1 Year-on-Year Performance Summary</h4>
+<p>Despite 2009 recording the highest single-year revenue, the business maintained consistent performance between 2010 and 2012, signalling market maturity. Profit margins remained relatively stable across all four years.</p>
+<p>  Year              Total Sales       Net Profit        Profit Margin</p>
+<p>  2009              $4,209,139        $434,539          10.3%</p>
+<p>  2010              $3,549,681        $363,871          10.2%</p>
+<p>  2011              $3,436,817        $381,456          11.1%</p>
+<p>  2012              $3,719,964        $341,902          9.2%</p>
+<h4>2. Product Category Analysis</h4>
+<p>KMS Superstore operates across three primary product categories:</p>
+<p>Technology, Furniture, and Office Supplies. Each category varies significantly in revenue contribution and profitability.</p>
+<h4>2.1 Sales &amp; Profitability by Category</h4>
+<p>  Product Category    Total Sales   Total Profit  Profit      % of</p>
+<p>                                                  Margin      Revenue</p>
+<p>  Technology          $5,984,248    $886,314      14.8%       40.1%</p>
+<p>  Furniture           $5,178,591    $117,433      2.3%        34.7%</p>
+<p>  Office Supplies     $3,752,762    $518,021      13.8%       25.2%</p>
+<table class="rt">
+<tr><th>Category Key Findings</th></tr>
+<tr><td>-   Technology is the highest-revenue and highest-profit category,</td></tr>
+<tr><td>contributing $886K (58.2%) of total profits on 40% of revenue —</td></tr>
+<tr><td>demonstrating strong margin efficiency.</td></tr>
+<tr><td>-   Furniture generates the second-highest revenue ($5.18M) but</td></tr>
+<tr><td>yields only $117K in profit — a thin 2.3% margin — driven largely</td></tr>
+<tr><td>by loss-making sub-categories.</td></tr>
+<tr><td>-   Office Supplies, while the smallest category by revenue,</td></tr>
+<tr><td>maintains a healthy 13.8% profit margin, making it the second</td></tr>
+<tr><td>most profitable category.</td></tr>
+</table>
+<h4>2.2 Top 10 Sub-Category Performance</h4>
+<p>Sub-category analysis reveals critical profit concentration and risk areas. Three sub-categories are operating at a net loss, requiring immediate management attention.</p>
+<p>  Sub-Category               Sales           Profit          Margin</p>
+<p>  Office Machines            $2,168,697      $307,713        14.2%</p>
+<p>  Telephones &amp; Comm.         $1,889,314      $316,952        16.8%</p>
+<p>  Chairs &amp; Chairmats         $1,761,837      $149,650        8.5%</p>
+<p>  Copiers and Fax            $1,130,361      $167,361        14.8%</p>
+<p>  Binders &amp; Accessories      $1,022,958      $307,413        30.1%</p>
+<p>  Storage &amp; Organization     $1,070,183      $6,664          0.6%</p>
+<p>  Tables                     $1,896,008      -$99,063        -5.2%</p>
+<p>  Bookcases                  $822,652        -$33,582        -4.1%</p>
+<p>  Scissors, Rulers &amp; Trim.   $80,996         -$7,799         -9.6%</p>
+<table class="rt">
+<tr><th>Loss-Making Sub-Categories — Action Required</th></tr>
+<tr><td>-   Tables: Net loss of $99,063 on $1.9M in sales — the single</td></tr>
+<tr><td>largest profit drain across all sub-categories. Pricing review</td></tr>
+<tr><td>and cost renegotiation are urgently needed.</td></tr>
+<tr><td>-   Bookcases: Net loss of $33,582. Likely impacted by high shipping</td></tr>
+<tr><td>costs relative to unit price. Consider bundled pricing or</td></tr>
+<tr><td>supplier renegotiation.</td></tr>
+<tr><td>-   Scissors, Rulers &amp; Trimmers: Although small in revenue, maintains</td></tr>
+<tr><td>a -9.6% margin. This line may be unsuitable for continued</td></tr>
+<tr><td>stocking without pricing adjustment.</td></tr>
+</table>
+<h4>3. Regional Performance Analysis</h4>
+<p>KMS Superstore serves eight Canadian regions. Regional performance varies considerably across sales volume and profitability, which has implications for resource allocation, logistics, and marketing strategy.</p>
+<h4>3.1 Sales &amp; Profit by Region</h4>
+<p>  Region             Total Sales   Total Profit  Profit      Share of</p>
+<p>                                                 Margin      Sales</p>
+<p>  West               $3,597,549    $297,009      8.3%        24.1%</p>
+<p>  Ontario            $3,063,212    $346,869      11.3%       20.5%</p>
+<p>  Prairie            $2,837,305    $321,160      11.3%       19.0%</p>
+<p>  Atlantic           $2,014,248    $238,961      11.9%       13.5%</p>
+<p>  Quebec             $1,510,195    $140,427      9.3%        10.1%</p>
+<p>  Yukon              $975,867      $73,849       7.6%        6.5%</p>
+<p>  NW Territories     $800,847      $100,653      12.6%       5.4%</p>
+<p>  Nunavut            $116,377      $2,841        2.4%        0.8%</p>
+<table class="rt">
+<tr><th>Regional Insights</th></tr>
+<tr><td>-   West leads in total revenue at $3.6M (24.1% share) but records</td></tr>
+<tr><td>the second-lowest profit margin at 8.3%, suggesting elevated</td></tr>
+<tr><td>costs or discounting pressure.</td></tr>
+<tr><td>-   Ontario and Prairie both achieve an 11.3% margin and together</td></tr>
+<tr><td>represent 39.5% of total revenue — the combined backbone of the</td></tr>
+<tr><td>business.</td></tr>
+<tr><td>-   Northwest Territories achieves the highest profit margin (12.6%)</td></tr>
+<tr><td>despite modest volume, suggesting strong pricing power or low</td></tr>
+<tr><td>fulfilment costs.</td></tr>
+<tr><td>-   Nunavut is the lowest-performing region with just $116K in sales</td></tr>
+<tr><td>and a 2.4% profit margin — indicating either very limited market</td></tr>
+<tr><td>penetration or structural cost challenges.</td></tr>
+</table>
+<h4>3.2 Top 5 Provinces by Revenue</h4>
+<p>  Province           Total Sales      Net Profit       Profit Margin</p>
+<p>  Ontario            $3,063,212       $346,869         11.3%</p>
+<p>  British Columbia   $1,892,758       $145,062         7.7%</p>
+<p>  Alberta            $1,704,791       $151,947         8.9%</p>
+<p>  Quebec             $1,510,195       $140,427         9.3%</p>
+<p>  Saskatchewan       $1,464,456       $184,733         12.6%</p>
+<h4>4. Customer Segment Analysis</h4>
+<p>The business serves four distinct customer segments: Corporate, Home Office, Consumer, and Small Business. Understanding segment-level revenue and profitability enables more targeted sales, pricing, and retention strategies.</p>
+<h4>4.1 Revenue &amp; Profitability by Segment</h4>
+<p>  Customer Segment    Total Sales   Net Profit    Profit      Share of</p>
+<p>                                                  Margin      Sales</p>
+<p>  Corporate           $5,498,905    $599,746      10.9%       36.9%</p>
+<p>  Home Office         $3,564,764    $318,354      8.9%        23.9%</p>
+<p>  Consumer            $3,063,611    $287,960      9.4%        20.5%</p>
+<p>  Small Business      $2,788,321    $315,708      11.3%       18.7%</p>
+<table class="rt">
+<tr><th>Segment Strategic Observations</th></tr>
+<tr><td>-   Corporate clients are the dominant segment — generating 36.9% of</td></tr>
+<tr><td>total revenue and $599K in profit. Retention of key corporate</td></tr>
+<tr><td>accounts should be a strategic priority.</td></tr>
+<tr><td>-   Small Business clients, although representing the smallest</td></tr>
+<tr><td>revenue share (18.7%), record the highest profit margin at 11.3%</td></tr>
+<tr><td>— suggesting excellent pricing realisation.</td></tr>
+<tr><td>-   Home Office segment achieves the lowest profit margin (8.9%)</td></tr>
+<tr><td>despite being the second-largest segment. Discount and cost</td></tr>
+<tr><td>structures should be reviewed for this group.</td></tr>
+<tr><td>-   Consumer segment shows middle-ground performance; targeted</td></tr>
+<tr><td>loyalty and upsell campaigns could drive improved profitability.</td></tr>
+</table>
+<h4>4.2 Top 5 Customers by Revenue</h4>
+<p>A concentrated set of high-value customers drives a disproportionate share of revenue. These accounts represent priority relationships for account management and retention.</p>
+<p>  Rank   Customer Name              Total Sales        Segment</p>
+<p>  1      Emily Phan                 $117,124           Corporate</p>
+<p>  2      Deborah Brumfield          $97,433            Corporate</p>
+<p>  3      Roy Skaria                 $92,542            Corporate</p>
+<p>  4      Sylvia Foulston            $88,876            Home Office</p>
+<p>  5      Grant Carroll              $88,417            Small Business</p>
+<h4>5. Shipping &amp; Logistics Analysis</h4>
+<p>Shipping mode selection directly affects both customer satisfaction and operational cost. The following analysis examines the distribution of orders by shipping method and its effect on profitability.</p>
+<h4>5.1 Sales by Shipping Mode</h4>
+<p>  Ship Mode           Total Sales     % Share      Notes</p>
+<p>  Regular Air         $7,506,303      50.3%        Primary mode —</p>
+<p>                                                   cost-effective for most</p>
+<p>                                                   orders</p>
+<p>  Delivery Truck      $6,224,879      41.7%        Used for large/bulky</p>
+<p>                                                   items — higher cost</p>
+<p>  Express Air         $1,184,419      7.9%         Premium option — high</p>
+<p>                                                   urgency shipments</p>
+<table class="rt">
+<tr><th>Logistics Observations</th></tr>
+<tr><td>-   Regular Air is the dominant shipping method, handling over 50% of</td></tr>
+<tr><td>sales volume, indicating a sound baseline for cost-efficient</td></tr>
+<tr><td>delivery.</td></tr>
+<tr><td>-   Delivery Truck accounts for $6.2M in sales — its high usage may</td></tr>
+<tr><td>be inflating shipping costs, particularly for Furniture. Cost</td></tr>
+<tr><td>benchmarking is advised.</td></tr>
+<tr><td>-   Express Air represents only 7.9% of revenue. Where used for</td></tr>
+<tr><td>non-critical orders, switching to Regular Air could yield notable</td></tr>
+<tr><td>cost savings.</td></tr>
+</table>
+<h4>5.2 Order Priority Distribution</h4>
+<p>  Order Priority     Total Sales     Avg. Discount   % of Revenue</p>
+<p>  Low                $3,282,630      5.0%            22.0%</p>
+<p>  High               $3,267,356      4.9%            21.9%</p>
+<p>  Medium             $2,862,452      5.0%            19.2%</p>
+<p>  Not Specified      $2,778,363      4.8%            18.6%</p>
+<p>  Critical           $2,724,799      5.0%            18.3%</p>
+<p>Order priority distribution is remarkably even across all categories,</p>
+<p>with all segments receiving approximately 5% average discounts. The consistency may indicate an indiscriminate discounting policy rather than one targeted to order urgency or customer value.</p>
+<h4>6. Returns &amp; Discount Analysis</h4>
+<h4>6.1 Return Rate Summary</h4>
+<p>  Status                      Count                 % of Transactions</p>
+<p>  Sold (Completed)            7,527                 89.6%</p>
+<p>  Returned                    872                   10.4%</p>
+<table class="rt">
+<tr><th>Returns Risk Assessment</th></tr>
+<tr><td>-   A 10.4% return rate (872 transactions out of 8,399) is elevated</td></tr>
+<tr><td>and represents a meaningful drag on net revenue and</td></tr>
+<tr><td>profitability.</td></tr>
+<tr><td>-   Returns not only reverse revenue but also increase logistics and</td></tr>
+<tr><td>restocking costs. Each returned transaction carries a compounded</td></tr>
+<tr><td>cost impact.</td></tr>
+<tr><td>-   A root cause analysis by category, region, and customer segment</td></tr>
+<tr><td>is strongly recommended to identify the primary drivers of</td></tr>
+<tr><td>returns and establish targeted reduction strategies.</td></tr>
+<tr><td>-   Industry benchmarks for B2B retail typically fall in the 5–8%</td></tr>
+<tr><td>range. KMS is currently above this threshold and should target a</td></tr>
+<tr><td>return rate below 8% within the next fiscal year.</td></tr>
+</table>
+<h4>6.2 Discounting Overview</h4>
+<p>The average discount granted across all orders is 5.0%, and this figure is consistent across all order priority levels — from Critical to Low.</p>
+<p>This uniformity may suggest the current discount framework is not strategically aligned to order urgency, customer tier, or product margin.</p>
+<p>  Metric                              Value</p>
+<p>  Average Discount Rate               5.0%</p>
+<p>  Estimated Revenue Impact            ~$745,780</p>
+<p>  Variation Across Priority Levels    Minimal (4.8% – 5.0%)</p>
+<p>  Recommendation                      Tiered discount policy by segment &amp;</p>
+<p>                                      margin</p>
+<h4>7. Strategic Recommendations</h4>
+<p>Based on the data analysis, the following strategic recommendations are proposed to improve profitability, operational efficiency, and customer satisfaction.</p>
+<h4>7.1 Priority Actions</h4>
+<table class="rt">
+<tr><th>Immediate Priorities (0–3 Months)</th></tr>
+<tr><td>-   Conduct a pricing review for Tables, Bookcases, and</td></tr>
+<tr><td>Scissors/Rulers — all three sub-categories are running at a net</td></tr>
+<tr><td>loss. Raise unit prices or negotiate better supplier terms.</td></tr>
+<tr><td>-   Investigate the 10.4% return rate by drilling into return reasons</td></tr>
+<tr><td>at the product and region level. Implement post-sale follow-up</td></tr>
+<tr><td>protocols to reduce avoidable returns.</td></tr>
+<tr><td>-   Revisit the discounting policy — introduce a tiered framework</td></tr>
+<tr><td>based on order size, segment profitability, and product margin</td></tr>
+<tr><td>rather than applying a flat 5% across all orders.</td></tr>
+</table>
+<table class="rt">
+<tr><th>Medium-Term Priorities (3–12 Months)</th></tr>
+<tr><td>-   Invest in growing the Technology category, which demonstrates the</td></tr>
+<tr><td>strongest margin efficiency (14.8%). Expand product breadth</td></tr>
+<tr><td>within high-performing sub-categories such as Telephones and</td></tr>
+<tr><td>Office Machines.</td></tr>
+<tr><td>-   Develop a Corporate Account Management programme — this segment</td></tr>
+<tr><td>generates 36.9% of revenue. Dedicated account managers and</td></tr>
+<tr><td>loyalty incentives could significantly improve retention.</td></tr>
+<tr><td>-   Evaluate the Nunavut and Yukon markets — low sales volumes and</td></tr>
+<tr><td>thin margins may not justify current fulfilment costs. Consider</td></tr>
+<tr><td>whether a direct-to-distribution model is more viable in these</td></tr>
+<tr><td>regions.</td></tr>
+<tr><td>-   Shift marginal Delivery Truck shipments to Regular Air for</td></tr>
+<tr><td>eligible product categories to reduce per-order logistics costs.</td></tr>
+</table>
+<h4>8. Conclusion</h4>
+<p>KMS Superstore demonstrates a solid and stable revenue base across the four-year period analysed, with total sales of $14.9 million and a net profit of $1.52 million. The business is well-positioned across key Canadian regions and serves a diversified customer base spanning corporate, home office, consumer, and small business segments.</p>
+<p>However, several structural challenges require prompt attention: a 10.4% return rate exceeds industry norms; three product sub-categories are operating at a net loss; and an undifferentiated discount policy is eroding margin potential. Furniture, while a significant revenue contributor, is the least profitable category and requires a strategic review.</p>
+<p>The Technology category and Ontario/Prairie regions represent the clearest opportunities for growth investment. With focused execution on the recommendations outlined in this report, KMS Superstore is well-placed to improve its profit margin from 10.2% toward a target of 13–15% in the near-to-medium term.</p>
+<p>— End of Report —</p></div>
+</div></div>
+<!-- MODAL: PIZZA -->
+<div class="mo" id="mo-pizza" onclick="cOut(event,'pizza')">
+<div class="md">
+  <div class="mh">
+    <div class="mhl"><div class="mic">&#127829;</div><div>
+      <div class="mt">Pizza Sales Analysis – Fiscal Year 2015</div>
+      <div class="mm">Full Annual Review  ·  Excel</div>
+    </div></div>
+    <button class="mx" onclick="closeM('pizza')">&#10005;</button>
+  </div>
+  <div class="mk"><div class="ki"><div class="kv">$817,860</div><div class="kk">Annual Revenue</div></div><div class="ki"><div class="kv">21,350</div><div class="kk">Total Orders</div></div><div class="ki"><div class="kv">49,574</div><div class="kk">Pizzas Sold</div></div><div class="ki"><div class="kv">$38.31</div><div class="kk">Avg Order Value</div></div><div class="ki"><div class="kv">2.32</div><div class="kk">Pizzas/Order</div></div><div class="ki"><div class="kv">32</div><div class="kk">Product SKUs</div></div></div>
+  <div class="mf"><a href="Pizza_Analysis_Project.xlsx" download class="mfb mfb-xl"><span>&#128196;</span> Excel Dataset <span class="mfbl">Download (.xlsx)</span></a></div>
+  <div class="mb"><p>🍕</p>
+<p>PIZZA SALES ANALYSIS REPORT</p>
+<p>Fiscal Year 2015 | Full Annual Review</p>
+<h4>1. Executive Summary</h4>
+<p>This report presents a comprehensive analysis of pizza sales data for the full fiscal year 2015. The dataset spans 48,620 transaction records across 21,350 unique customer orders, covering 32 distinct pizza products in four categories and five size variants. The analysis explores revenue performance, product mix, temporal ordering patterns,</p>
+<p>and category contribution to support strategic business decisions.</p>
+<h4>1.1 Key Performance Indicators</h4>
+<p>  Total Revenue  Total Orders   Total Pizzas   Avg. Order     Avg.</p>
+<p>                                Sold           Value          Pizzas/Order</p>
+<p>  $817,860.05    21,350         49,574         $38.31         2.32</p>
+<p>The business generated $817,860.05 in total revenue during FY 2015,</p>
+<p>processing an average of 1,765 orders per month. With an average order value of $38.31 and approximately 2.32 pizzas per order, the data suggests a strong customer preference for multi-item purchases,</p>
+<p>consistent with group or family dining behaviour.</p>
+<h4>2. Revenue Analysis</h4>
+<h4>2.1 Monthly Revenue Trends</h4>
+<p>Monthly revenue showed moderate seasonality, with peaks in summer and troughs in autumn and late Q4.</p>
+<p>  Month                   Revenue                 Relative Performance</p>
+<p>  January                 $69,793.30              Within Normal Range</p>
+<p>  February                $65,159.60              Within Normal Range</p>
+<p>  March                   $70,397.10              Within Normal Range</p>
+<p>  April                   $68,736.80              Within Normal Range</p>
+<p>  May                     $71,402.75              Within Normal Range</p>
+<p>  June                    $68,230.20              Within Normal Range</p>
+<p>  July                    $72,557.90              ▲ Peak Month</p>
+<p>  August                  $68,278.25              Within Normal Range</p>
+<p>  September               $64,180.05              Within Normal Range</p>
+<p>  October                 $64,027.60              ▼ Lowest Month</p>
+<p>  November                $70,395.35              Within Normal Range</p>
+<p>  December                $64,701.15              Within Normal Range</p>
+<p>July recorded the highest monthly revenue at $72,557.90, while October posted the lowest at $64,027.60 — a variance of approximately 13.3%. The relatively tight performance range across months suggests consistent demand rather than severe seasonality, though subtle summer uplift is observable from May through July.</p>
+<h4>2.2 Revenue by Pizza Category</h4>
+<p>Revenue is fairly well distributed across the four product categories,</p>
+<p>though the Classic range leads on both revenue and volume.</p>
+<p>  Category       Revenue       Rev %      Units Sold   Units %    Avg Price</p>
+<p>  Classic        $220,053.10   26.9%      14,888       30.0%      $14.80</p>
+<p>  Supreme        $208,197.00   25.5%      11,987       24.2%      $17.36</p>
+<p>  Chicken        $195,919.50   23.9%      11,050       22.3%      $17.71</p>
+<p>  Veggie         $193,690.45   23.7%      11,649       23.5%      $16.61</p>
+<p>The Classic category dominates in both revenue (26.9%) and units sold (30.0%), driven primarily by lower price points that sustain high volume. In contrast, Chicken commands the highest average unit price ($17.71) but ranks third in units sold, suggesting a premium positioning within the menu. Veggie products, despite having the second-highest unit count, generate the lowest revenue — an indicator of downward pricing pressure in this segment.</p>
+<h4>2.3 Revenue by Pizza Size</h4>
+<p>Pizza size distribution reveals a strong consumer preference for larger portions, with Large pizzas accounting for nearly half of all revenue.</p>
+<p>  Size                    Revenue                 % of Total</p>
+<p>  Large                   $375,318.70             45.9%</p>
+<p>  Medium                  $249,382.25             30.5%</p>
+<p>  Regular                 $178,076.50             21.8%</p>
+<p>  X-Large                 $14,076.00              1.7%</p>
+<p>  XX-Large                $1,006.60               0.1%</p>
+<p>Large-sized pizzas are the dominant revenue driver, accounting for 45.9% of total sales. Together, Large and Medium sizes account for 76.4% of revenue — confirming that most customers opt for value-per-slice over smaller portion formats. X-Large and XX-Large pizzas represent a marginal combined share of just 1.8%, suggesting limited consumer demand at the upper end of the size range. This creates a menu rationalisation opportunity.</p>
+<h4>3. Product Performance</h4>
+<h4>3.1 Top 5 Best-Selling Pizzas (by Quantity)</h4>
+<p>The following five pizzas achieved the highest unit sales for the year and together account for over 12,096 units sold.</p>
+<p>  #    Pizza Name                     Category     Qty Sold     Revenue</p>
+<p>  1    The Classic Deluxe Pizza       Classic      2,453        $38,180.50</p>
+<p>  2    The Barbecue Chicken Pizza     Chicken      2,432        $42,768.00</p>
+<p>  3    The Hawaiian Pizza             Classic      2,422        $32,273.25</p>
+<p>  4    The Pepperoni Pizza            Classic      2,418        N/A</p>
+<p>  5    The Thai Chicken Pizza         Chicken      2,371        $43,434.25</p>
+<p>The Classic Deluxe Pizza leads in volume (2,453 units) but is not the top revenue earner — that distinction belongs to The Thai Chicken Pizza at $43,434.25. This divergence highlights the importance of balancing volume with margin when evaluating product performance. The top five list is split between Classic (3 products) and Chicken (2 products)</p>
+<p>categories, reinforcing their dominance.</p>
+<h4>3.2 Bottom 5 Worst-Selling Pizzas (by Quantity)</h4>
+<p>These five pizzas had the lowest unit sales of FY 2015 and may warrant review for menu continuation.</p>
+<p>  #    Pizza Name                     Category     Qty Sold     Revenue</p>
+<p>  1    The Brie Carre Pizza           Classic      490          $11,588.50</p>
+<p>  2    The Mediterranean Pizza        Classic      934          $15,360.50</p>
+<p>  3    The Calabrese Pizza            Supreme      937          N/A</p>
+<p>  4    The Spinach Supreme Pizza      Supreme      950          $15,277.75</p>
+<p>  5    The Soppressata Pizza          Supreme      961          N/A</p>
+<p>The Brie Carre Pizza is significantly underperforming at just 490 units — less than one-fifth of the best-seller. Its revenue of $11,588.50 positions it as the weakest performer on both quantity and revenue dimensions. The Mediterranean, Calabrese, Spinach Supreme, and Soppressata pizzas collectively sold 3,782 units compared to the top five&#x27;s 12,096, suggesting a clear long-tail distribution in product demand.</p>
+<h4>3.3 Revenue Leader Board — Top 10 by Revenue</h4>
+<p>Revenue performance does not always align with unit sales, as higher-priced speciality pizzas can outperform high-volume, lower-margin products.</p>
+<p>  Rank   Pizza Name                             Revenue</p>
+<p>  1      The Thai Chicken Pizza                 $43,434.25</p>
+<p>  2      The Barbecue Chicken Pizza             $42,768.00</p>
+<p>  3      The California Chicken Pizza           $41,409.50</p>
+<p>  4      The Classic Deluxe Pizza               $38,180.50</p>
+<p>  5      The Spicy Italian Pizza                $34,831.25</p>
+<p>  6      The Southwest Chicken Pizza            $34,705.75</p>
+<p>  7      The Italian Supreme Pizza              $33,476.75</p>
+<p>  8      The Hawaiian Pizza                     $32,273.25</p>
+<p>  9      The Four Cheese Pizza                  $32,265.70</p>
+<p>  10     The Sicilian Pizza                     $30,940.50</p>
+<p>Notably, three of the top five revenue earners are Chicken category pizzas (Thai Chicken, Barbecue Chicken, California Chicken),</p>
+<p>underscoring that while Classic leads in volume, Chicken maximises value. The top 10 revenue pizzas collectively contribute a disproportionate share of total revenue, typical of a Pareto-style distribution.</p>
+<h4>4. Ordering Trends</h4>
+<h4>4.1 Daily Order Distribution</h4>
+<p>Order volumes vary significantly across days of the week, with a mid-to-end-of-week surge being the dominant pattern.</p>
+<p>  Day             Orders          Revenue               Traffic Level</p>
+<p>  Friday          3,538           $136,073.90           Highest</p>
+<p>  Saturday        3,158           $123,182.40           High</p>
+<p>  Thursday        3,239           $123,528.50           High</p>
+<p>  Wednesday       3,024           $114,408.40           Mid</p>
+<p>  Tuesday         2,973           $114,133.80           Mid</p>
+<p>  Monday          2,794           $107,329.55           Low</p>
+<p>  Sunday          2,624           $99,203.50            Lowest</p>
+<p>Friday is the busiest trading day with 3,538 orders and $136,073.90 in revenue — 34.7% more orders than the quietest day (Sunday). Thursday and Saturday are close runners-up. The weekend dip on Sunday is notable, as it contrasts with common retail assumptions. This pattern suggests the business caters primarily to working professionals or weeknight social occasions rather than weekend leisure dining.</p>
+<h4>4.2 Hourly Order Distribution</h4>
+<p>Order activity follows a predictable bi-modal pattern, peaking during lunch and dinner service windows.</p>
+<p>  Hour              Orders            Period</p>
+<p>  9 AM              1                 Off-Peak</p>
+<p>  10 AM             8                 Off-Peak</p>
+<p>  11 AM             1,231             Regular</p>
+<p>  12 PM             2,520             Peak Period</p>
+<p>  1 PM              2,455             Peak Period</p>
+<p>  2 PM              1,472             Regular</p>
+<p>  3 PM              1,468             Regular</p>
+<p>  4 PM              1,920             Regular</p>
+<p>  5 PM              2,336             Peak Period</p>
+<p>  6 PM              2,399             Peak Period</p>
+<p>  7 PM              2,009             Peak Period</p>
+<p>  8 PM              1,642             Regular</p>
+<p>  9 PM              1,198             Regular</p>
+<p>  10 PM             663               Regular</p>
+<p>  11 PM             28                Off-Peak</p>
+<p>The busiest trading hours are the lunch window (12 PM: 2,520 orders; 1 PM: 2,455 orders) and the dinner window (5 PM–7 PM: 6,744 combined orders). There is a notable mid-afternoon lull between 2 PM and 4 PM,</p>
+<p>where order volumes drop significantly. The restaurant is effectively inactive before 11 AM and after 10 PM. This creates opportunities for targeted promotions during the 2–4 PM lull to smooth revenue across the day.</p>
+<h4>5. Key Insights &amp; Recommendations</h4>
+<h4>5.1 Key Findings</h4>
+<ul>
+<li>Revenue is stable year-round with mild summer peaks — the business</li>
+</ul>
+<p>    shows resilient, non-seasonal demand.</p>
+<ul>
+<li>Classic category drives the highest volume; Chicken category drives</li>
+</ul>
+<p>    the highest revenue value per unit.</p>
+<ul>
+<li>Large-sized pizzas dominate at 45.9% of revenue; XX-Large pizzas are</li>
+</ul>
+<p>    marginal at 0.1%.</p>
+<ul>
+<li>Friday is the highest-traffic day; Sunday is the lowest — opposite</li>
+</ul>
+<p>    to traditional weekend retail assumptions.</p>
+<ul>
+<li>12 PM and 6 PM are the two peak order hours; a significant</li>
+</ul>
+<p>    mid-afternoon dip exists between 2–4 PM.</p>
+<ul>
+<li>The Brie Carre Pizza severely underperforms at 490 units — 80% below</li>
+</ul>
+<p>    the best-seller.</p>
+<ul>
+<li>The top 3 revenue-generating pizzas are all from the Chicken</li>
+</ul>
+<p>    category, despite it ranking third in unit volume.</p>
+<h4>5.2 Strategic Recommendations</h4>
+<h4>1.  Promote Chicken category products as premium offerings. Given their</h4>
+<p>    higher unit value and top revenue rankings, bundling strategies</p>
+<p>    (e.g., combo deals with drinks or sides) could increase average</p>
+<p>    order value further.</p>
+<h4>2.  Phase out or reformulate underperforming products. The Brie Carre</h4>
+<p>    Pizza and similar tail-end products represent opportunity cost —</p>
+<p>    menu simplification can reduce complexity and focus kitchen</p>
+<p>    operations.</p>
+<h4>3.  Introduce afternoon promotions (2–4 PM). A targeted discount or</h4>
+<p>    &#x27;happy hour&#x27; deal during this lull could capture incremental orders</p>
+<p>    and smooth kitchen utilisation.</p>
+<h4>4.  Leverage Friday demand peaks. Ensure maximum staffing and inventory</h4>
+<p>    readiness on Fridays. Consider loyalty rewards or pre-order</p>
+<p>    incentives to drive early Friday orders and manage kitchen</p>
+<p>    throughput.</p>
+<h4>5.  Rationalise X-Large and XX-Large sizes. These sizes collectively</h4>
+<p>    account for only 1.8% of revenue and may not justify dedicated</p>
+<p>    inventory management. Consolidation into a &#x27;Large Plus&#x27; tier could</p>
+<p>    simplify operations.</p>
+<h4>6.  Investigate September–October revenue dip. Both months show revenue</h4>
+<p>    below $65,000 — understanding the drivers (school term changes,</p>
+<p>    local events, weather) could support targeted campaigns to defend</p>
+<p>    performance.</p>
+<h4>7.  Expand Veggie pricing strategy. Veggie pizzas sell well in volume</h4>
+<p>    (23.5% of units) but underperform on revenue (23.7%), suggesting</p>
+<p>    very narrow margins. A modest price adjustment or premium ingredient</p>
+<p>    variant could improve profitability.</p>
+<h4>6. Conclusion</h4>
+<p>The pizza business delivered a healthy FY 2015 performance with $817,860 in revenue across 21,350 orders. The data reveals a well-diversified product portfolio with clear revenue leaders (Chicken category, Large size, Friday peak), but also highlights meaningful optimisation opportunities in product rationalisation, off-peak trading, and pricing strategy.</p>
+<p>A data-driven approach to these recommendations — particularly around menu consolidation and targeted promotions — has the potential to improve both operational efficiency and revenue yield without requiring significant capital investment.</p></div>
+</div></div>
+<script>
+function openM(id){document.getElementById('mo-'+id).classList.add('open');document.body.style.overflow='hidden'}
+function closeM(id){document.getElementById('mo-'+id).classList.remove('open');document.body.style.overflow=''}
+function cOut(e,id){if(e.target===e.currentTarget)closeM(id)}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){document.querySelectorAll('.mo.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow=''}
+});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.08});
+document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i*0.05)+'s';obs.observe(el)});
+</script>
+</body></html>
